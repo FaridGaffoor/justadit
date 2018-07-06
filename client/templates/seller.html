@@ -1,0 +1,161 @@
+
+
+
+<template name="seller">  
+
+        {{#nav title='Seller'  black=true back=true   }}
+        
+         
+        {{/nav}}
+        
+        
+       
+  <div class="content-scrollable">
+                
+                 <img class="  " src="/img/app/bg-about-640x540.png" alt="seller" style="height:300px;width:100%">  
+
+                 <!-- Use `name` to add a custom class to the outer container -->
+
+                 <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#seller">Seller Details</a></li>
+                    <li><a data-toggle="tab" href="#prod">New Product</a></li>
+                    <li><a data-toggle="tab" href="#prodCat">My Catalogue</a></li>
+                  </ul>
+                  
+                  <div class="tab-content">
+                    <div id="seller" class="tab-pane fade in active">
+                      <h3>Seller Details</h3>
+                        {{>Seller_tmp}}
+                    </div>
+                    <div id="prod" class="tab-pane fade">
+                      <h3>New Product</h3>
+                        {{>tmp_product_sell}}
+                    </div>
+                    <div id="prodCat" class="tab-pane fade">
+                      <h3>My Product Catalogue</h3>
+                      {{>SellerProducts_tmp}}
+                    </div>
+                  </div>
+   
+                
+
+ 
+        
+  </div>          
+</template>
+      
+
+
+<template name="Seller_tmp">
+  
+ 
+    {{#with amISeller}}
+   
+    <form class="add_Seller_form form-inline" id="add_Seller_form" role="form">
+            
+        <div>
+            <input type="hidden" name="id" value="{{_id}}">
+            <input type="hidden" name="userId" value="{{userId}}" >
+            <div class="form-group" >        
+                <div>
+                    <!--Business Details -->
+                    <div class="form-row" >
+                      <div class="panel-defaul panel">
+                          <div class="title panel-heading">Business Details</div>     
+                          <div class="panel-body">
+                        <div class="col-md-4 col-sm-4 ">
+                                <!-- <label for="busname" class="col-form-label">Business Name</label> -->
+                                <input  type="text" class="" name="businessname" placeholder="Business Name" value="{{businessname}}"/>                                                
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                                <!-- <label for="tagName" class="col-form-label">Tag Line</label>  -->
+                                <input type="text" class="" name="businesstagLine" placeholder="Business Tag line" id="busTagLine" value="{{busTagLine}}"/>
+                        </div> 
+                        <div class="col-md-4 col-sm-4">
+                                <!-- <label for="webSite" class="col-form-label">Web Site</label>  -->
+                                <input type="text" class="" name="website" placeholder="Website" id="Website" value="{{website}}"/>
+                        </div>       
+                      </div>
+                      </div>
+                    </div>
+                    <!--Business Images Details -->
+                    <div class="row " >                
+                            <div class="col-md-8 col-sm-4 panel">
+                                <!-- <label for="BusLogo" class="col-form-label">Business Logo</label> -->
+                                <!--zid=SellerId cat=Cat type=Type }}-->
+                                <div class="panelheading panel-heading">Business Images</div>     
+                                <div class=" form-group  panel-body  "> 
+                                  <div class="panel">
+                                      <div class="panelheading panel-heading">Business Logo</div>  
+                                    <div class="panel-body">
+                                    
+                                      
+                                <!-- <img src="" alt="" id="comp_img" class="img-fluid" width="236px" height="236px">      -->
+                                 
+                                <img name="imgBusLogo" id="imgBuslogo" class="imgBusLogo img-fluid img-responsive panel-body "  width="236px" height="236px" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  /> 
+                               {{>showImage imgId=busLogo }}                                 
+                               <a href="" download="file" id="comp_download" class="btn btn-primary" style="display: none" >download</a>
+                               <a href="" download="file" id="comp_download2" class="btn btn-primary" style="display: none" >download</a>
+                                <input type="file" name="fileLogo" class="imgBuLogo" id="imgBuLogo" placeholder="Select business Logo"  >
+                                     </div>
+                                  </div> 
+                                    <!-- <label for="MyPhoto" class="col-form-label">My Photo</label>    -->
+                                    <!-- <img src="" alt="" id="comp_img2" class="img-fluid" width="236px" height="236px">                          
+                                    <img name="imgBusAvatar" id="imgBusAvatar" class="imgBusAvatar img-responsive panel-body "  width="236px" height="236px" src="'/images/storing.gif'" alt=""  /> 
+                                   {{>showImage imgId=busAvatar }}  
+                                    
+                                    <input type="file" name="imgAvatar" class="imgAvatar" id="imgAvatar" placeholder="Select Image of you"   > -->
+                              </div>  
+                           </div>
+
+                    </div>               
+                    
+
+                    <!--Details -->
+                    <div class="row ">
+                        <div class="form-group col-md-4 panel " >      
+                            <div class="title panel-heading">Contact Details</div>                     
+                                <div class=" form-group  panel-body  "> 
+                                    <input type="tel" class="form-control required" name="bustell" placeholder="Business Number" maxlength="12" value="{{bustel}}" />
+                                    <input type="tel" class="form-control required" name="buscell" placeholder="Cell Number" maxlength="12" value="{{buscel}}" />
+                                    <input type="email" class="form-control required" name="busemail" placeholder="Email Address" maxlength="35" value="{{busemail}}"/>                                                                   
+                                    <input type="" class="form-control required" name="person1" placeholder="Contact Person 1" maxlength="25" value="{{cont1}}"/>                                                                   
+                                    <input type="text" class="form-control" name="person2" placeholder="Contact Person 2" maxlength="25" value="{{cont2}}"/>                                                                   
+                                </div>    
+                        </div>
+                    
+                        <div class="form-group col-md-4 panel" >
+                            <div class="title panel-heading">Address Details</div>              
+                                <div class="form-group   panel-body  "> 
+                                    <input type="text" class=" " name="add1" placeholder="Street Address" value="{{add1}}"/>
+                                    <input type="text" class=" " name="add2" placeholder="" value="{{add2}}"/>
+                                    <input type="text" class=" " name="add3" placeholder="" value="{{add3}}"/>                                                                   
+                                    <input type="text" class=" " name="add4" placeholder="Postal Code" value="{{add4}}"/>    
+                                    <input type="text" class=" " name="add5" placeholder="Additional Info" value="{{add5}}"/>                                                                                                                                  
+                                </div>   
+                        </div>                
+                    
+                        <div class="form-group col-md-4 panel" >  
+                            <div class="form-group  panel-body  ">                        
+                                <img src="/lenz.png" />                                                           
+                            </div>
+                        </div>
+                    </div>
+                    <input type="checkbox" name="chkCond" class="form-check-input required" value="true" >Accept terms and condtions     
+                </div>
+                <div class="form-row ">
+                        <div class="col-md-8">
+                               
+                            <button type="submit" name="btnAddSeller" class="btn btn-primary">{{#if isNullOrEmpty _id }}New{{else}}Update{{/if}}</button>
+                            <button type="button" class="btn btn-secondary" >Cancel</button>
+                        </div>
+                    </div> 
+
+            </div>                   
+        </div>                                 
+    </form>
+ 
+
+    {{/with}}
+</template>
+

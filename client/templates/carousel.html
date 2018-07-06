@@ -1,0 +1,90 @@
+<template name="carousel">
+<div>
+    <!--id="Caro{{carID}}"-->
+    <div id="Caro"   class="carousel slide "  style="width:100%;margin :auto;height:400px;padding:4em;background-color: #d83e14"  data-ride="carousel">
+        <ol class="carousel-indicators">          
+            {{#each imgs in getImageById prodImg}}      
+                
+                {{#let slideIndex = @index}}                                   
+                    {{#if compare slideIndex 0}}
+                        <li data-target="#Caro" data-slide-to="{{@index}}" class="active"></li>                       
+                    {{/if}}
+                    {{#if bigger slideIndex 0}}
+                        <li data-target="#Caro" data-slide-to="{{@index}}" ></li>                       
+                    {{/if}}
+                {{/let}}          
+                
+            {{/each}}                   
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div id="CaroImg" class="carousel-inner carouselBack bg-image" >
+
+
+
+        {{#each imgs in getImageById prodImg}}      
+
+            {{#let imgIndex = @index}}  
+
+
+                {{#if compare imgIndex 0}}
+                <div class="item  active  card   "  >    
+                   
+                     
+                        <picture>
+                          <source
+                          media="(max-height:380px)"
+                           
+                            srcset="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}">
+                            <img name="imgBusAvatar" id="imgBusAvatar" class="card-img-top img-responsive "  style="position:relative;display: block;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;height:auto;width:auto;max-height:380px "    src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />
+                        </picture>
+                        
+                        <!--<img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src='/img/app/noImage.jpg' alt=""  /> 
+                         
+                        <img name="imgBusAvatar" id="imgBusAvatar" class="imgBusAvatar img-responsive panel-body " style="position:relative;display: block;margin-left:auto;margin-right:auto;width:auto;height:380px"    src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />
+                        -->
+                     
+                </div>                                                               
+                {{/if}}
+
+                {{#if bigger imgIndex 0}}
+               
+                <div class="item  card   "  >        
+                        <picture>
+                                <source
+                                  media="(max-height:380px)"
+                                 
+                                  srcset="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}">
+                                  <img name="imgBusAvatar" id="imgBusAvatar" class="card-img-top img-responsive "  style="position:relative;display: block;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;height:auto;width:auto;max-height:380px "     src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />
+                              </picture>     
+                       <!-- <img name="imgBusAvatar" id="imgBusAvatar" class="imgBusAvatar img-responsive panel-body "  style="position:relative;display: block;margin-left:auto;margin-right:auto;width:auto;height:380px"   src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />
+                       -->
+                       
+            </div>
+                {{/if}}
+                
+
+            {{/let}}          
+                                                                            
+                        
+        {{/each}}
+
+
+        </div>
+        {{#if (isSingle prodImg)}}
+        {{else}}
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#Caro" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#Caro" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+        </a>
+        {{/if}}
+    </div>
+             
+</div>     
+         
+</template>

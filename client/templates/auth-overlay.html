@@ -1,0 +1,71 @@
+<template name="authOverlay">
+    <div class="page product {{activeTabClass}}">
+        {{#nav title='Login' black=true back=false}}
+        {{/nav}}
+        <div class="content-scrollable static-nav ">
+          <div class="container-fluid" style="height: 100%;max-height: 360px">
+              <div class="" style="position:absolute;display:inline-block;left:30%;top:20%"> 
+                  <div class="panel-body" style="position: relative;left:-25%">
+                        {{> loginButtons}}
+                  {{#if currentUser}}
+                    {{>logout}}
+                  {{else}}
+                
+                      {{>customLogin}}
+                     
+                     
+                  
+                  {{/if}}
+                  </div>
+              </div>
+          </div>
+            
+          <div style="position: relative;display:inline-block;height:400px;left:30%;top:30%">
+          <!-- <div id="login-screen">
+            {{> loginButtons}}
+          </div> -->
+          
+           
+        </div>
+              
+         </div>
+  </div>
+
+</template>
+
+<template name="logout">
+   
+   
+    <div  >
+        <button class="btn btn-primary col-xs-12 col-sm-12 btnLogout" id="btnLogout"   type="button">Logout</button>
+        <button class="btn btn-secondary col-xs-12 col-sm-12 btnCancel "   type="button">Cancel</button>
+      </div>
+   
+</template>
+
+
+<template name="customLogin">
+    <div class="panel-heading title-product"><h1>Login</h1></div>
+    <form id="login-form" action="action" >
+      <div>
+          <div class="form-group">
+              <label for="emailAddress">Email address</label>
+              <input type="email" class="form-control" id="emailAddress" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </div>
+        <div style="">
+          <button id="btnLogin" class="btn btn-primary col-xs-12 col-sm-12 btnLogin "  type="button">Login</button>
+          <button class="btnCancel btn btn-secondary col-xs-12 col-sm-12 "   type="button">Cancel</button>
+        </div>
+        
+      </div>
+      </form>
+      <div class="row">      
+          <button id="bSignup" class="bSignup btn"   type="button">Signup</button>
+          <button ib="bForgot" class="btn"  type="submit">Forgot password</button>
+          
+      </div>
+</template>

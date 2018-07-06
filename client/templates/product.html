@@ -1,0 +1,84 @@
+<template name="product">
+<div class="page product {{activeTabClass}}">
+  {{#with thisSelectedProduct}}   
+    {{#nav title=thisSelectedProduct.producttitle black=true back=true}}
+      {{#if bookmarked}}
+        <a href="#" class="nav-item js-remove-bookmark bookmarked"><span class="icon-bookmark"></span></a>
+      {{else}}
+        <a href="#" class="nav-item js-add-bookmark"><span class="icon-bookmark-hollow"></span></a>
+      {{/if}}
+    <!--<a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>-->
+    {{/nav}}
+  
+     
+    <div class="content-scrollable static-nav product-scrollable">
+      {{> carousel prodImg=prodImg}}   
+     
+      <div class="container-fluid panel-body">
+        <div class="attribution-product js-uncollapse">
+          <h1 class="title-product text-capitalize">{{producttitle}}</h1>       
+            <h2 class="title-product text-capitalize">{{productDescription}}</h2>        
+            <h3 class="title-product text-capitalize">R {{price}}</h3>       
+        </div>     
+      </div>
+      
+       <div class="card" >
+          <div class="panel-body">
+              <div class="card-block">
+                  <div class="media-left">
+                     <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <div style="width:236px;height:236px">
+                                {{>showImage imgId=seller.busLogo}}
+                              </div>
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                          {{#if currentUser}}
+                            <div class="media-body">
+                                <h1 class="text-capitalize">{{seller.businessname}}</h1>
+                                  <div class="panel-body">
+                                      <h1>Contact</h1>
+                                      <div class="card-subtitle">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <span class="glyphicon glyphicon-phone"></span>
+                                                {{seller.buscel}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <span class="glyphicon glyphicon-envelope"></span>
+                                                {{seller.busemail}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <span class="glyphicon glyphicon-user"></span>
+                                                {{seller.cont1}}/{{seller.cont2}}
+                                            </div>
+                                        </div>
+                                      </div>                        
+                                  </div>                    
+                                <div class="clearfix"></div>                 
+                              </div>    
+                        
+                        
+                              {{else}}
+                                Please login to view details
+                              {{/if}}    
+                        </div>
+                     </div>                    
+                  </div>            
+                                 
+              </div>            
+          </div>       
+      </div>  
+      
+    </div>
+    {{/with}}
+ </div>
+
+          
+</template>
+
+

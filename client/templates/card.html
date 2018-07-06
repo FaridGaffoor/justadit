@@ -1,0 +1,21 @@
+<template name="card">
+<div class="col-sm-8">
+    <div class="card">
+
+   
+        {{cardDetails.prodImg}}
+        <div>
+            {{> carousel inputImages=cardDetails.prodImg}}
+        </div>
+      <!--img class="card-img-top img-responsive" src="http://placehold.it/800x400" alt="Card image cap">-->
+      <div class="card-block">
+        <h4 class="card-title">cardDetails.producttitle</h4>
+        <p class="card-text">cardDetails.productDescription</p>
+        {{>SellerShort product.sellerId}}
+         
+      </div>
+    </div>
+    <!-- /.card -->
+  </div>  <!-- /.col -->
+ 
+</template>

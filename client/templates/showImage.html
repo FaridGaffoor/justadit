@@ -1,0 +1,11 @@
+<template name="showImage">
+    <div>
+   
+    {{#with getSellerImage imgId  }}
+    <div>
+        <img  class=" img-responsive panel-body "  width="236px" height="236px" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+    </div>
+    {{/with}}
+</div>
+</template>
+

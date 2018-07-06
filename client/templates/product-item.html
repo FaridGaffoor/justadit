@@ -1,0 +1,146 @@
+
+<template name="productItem">
+ 
+ 
+
+
+        {{#nav title='Products' black=false back=true}}
+        
+          {{#if bookmarked}}
+            <a href="#" class="nav-item js-remove-bookmark bookmarked"><span class="icon-bookmark"></span></a>
+          {{else}}
+            <a href="#" class="nav-item js-add-bookmark"><span class="icon-bookmark-hollow"></span></a>
+          {{/if}}
+          <!--
+            Camera it works
+            <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
+        
+          -->
+        {{/nav}}
+          
+        {{#if compare isEdit true}}
+
+        {{#with product}}        
+           
+            
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-1">
+            <div class="card">
+                <a class="item-product {{highlightedClass}}" href="{{pathFor 'product' _id=_id}}">  
+              <div style="text-align: center">
+                    
+                {{#each getCardImageById prodImg}}
+                
+               
+                {{#if this.url}}
+                <picture>
+                  <source
+                    media="(min-width:400px)"
+                    srcset="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}">
+                    <img  class="card-img-top img-responsive " style="height:auto;width:100%;text-align: center" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+                </picture>
+                {{else}}
+                <picture>
+                  <source
+                    media="(min-width:400px)"
+                    srcset="/img/app/noImage.jpg">
+                    <img  class="card-img-top img-responsive " style="height:auto;width:100%;text-align: center" src="/img/app/noImage.jpg" alt=""  />  
+                </picture>
+                <!--<img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src='/img/app/noImage.jpg' alt=""  /> -->
+                {{/if}}
+
+                {{/each}}   
+
+              <!-- {{#if prodImg !=""}}
+                
+             
+                <img class="card-img-top img-responsive" style="height:20em;width:100%;text-align: center" src="{{productPath}}{{getFirstElement prodImg}}" alt="{{productDescription}}">
+              {{/if}}
+                 -->
+                 
+               
+              </div>
+              </a>
+               <div class="card-block">
+                <h4 class="card-title">{{producttitle}}</h4>
+                <p class="card-text" style="overflow-wrap:break-word ">{{productDescription}}</p>
+                <h4 class="card-title">R {{price}}</h4>
+                {{>SellerShort sellerId}}
+                 <a class="btn btn-tertiary " href="{{pathFor 'editproduct' _id=_id}}" >Edit</a>
+                   
+                
+                 
+              </div>
+            </div>
+          </div>
+     
+            {{/with}}
+        {{else}}
+        {{#with product}}        
+          <a class="item-product {{highlightedClass}}" href="{{pathFor 'product' _id=_id}}">   
+            
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-1">
+            <div class="card">
+              <div style="text-align: center">
+                 {{this.url prodImg}}
+                {{#each getCardImageById prodImg}}
+                <!-- {{#if this.url}}
+                  <img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+                {{/if}} -->
+
+
+                {{#if this.url}}
+                <picture>
+                  <source
+                    media="(min-width:400px)"
+                    srcset="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}">
+                    <img  class="card-img-top img-responsive " style="height:auto;width:100%;text-align: center" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+                </picture>
+                {{else}}
+                <picture>
+                  <source
+                    media="(min-width:400px)"
+                    srcset="/img/app/noImage.jpg">
+                    <img  class="card-img-top img-responsive " style="height:auto;width:100%;text-align: center" src="/img/app/noImage.jpg" alt=""  />  
+                </picture>
+                <!--<img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src='/img/app/noImage.jpg' alt=""  /> -->
+                {{/if}}
+                {{/each}}   
+
+                 
+               
+              </div>
+               <div class="card-block">
+                <h4 class="card-title">{{producttitle}}</h4>
+                <p class="card-text" style="overflow-wrap:break-word ">{{productDescription}}</p>
+                <h4 class="card-title">R {{price}}</h4>
+                {{>SellerShort sellerId}}
+                
+                 
+              </div>
+            </div>
+          </div>
+        </a>
+            {{/with}}
+        {{/if}}
+
+     
+          
+          
+
+       
+ 
+    
+    </template>
+
+
+    <template name="showCardImage">
+        <div>
+        
+        {{#with getImage imgId  }}
+        <div>
+       
+            <img class=" img-responsive panel-body "  width="236px" height="236px" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+            </div>
+        {{/with}}
+    </div>
+    </template>

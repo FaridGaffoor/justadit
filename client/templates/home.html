@@ -1,0 +1,50 @@
+<template name="home">
+  <div class="page home">
+
+    {{>nav title='just adit' black=true}}
+     
+
+    <div class="content-scrollable">
+      <div class="bg-image home">
+        <h1 class="title-home">
+          <!--<img src="img/app/logo-local.svg" alt="Local Market"/>-->
+          <img src="img/app/logo-local.png" alt="just adit now"/>
+        </h1>
+        <span class="hours"><span class="title-callout">Advertise </span>
+        Anytime you want.</span>
+        <span class="arrow"></span>
+      </div>
+
+      <div class="callout-news">
+        <span class="title-callout">Ticker</span>
+         
+         
+      </div>
+      <div>
+      
+      <!--<a href="{{pathFor 'feed'}}" class="btn-primary">See who's selling</a>-->
+      <a href="{{pathFor 'products' :_searchTerm='All'}}" class="btn-primary">More products</a>
+    </div>
+      <div>
+      <h2 class="list-title">Latest products</h2>
+      <div class="list-subtitle">Just added by suppliers</div>
+        <div class="list-products">
+          <div style="padding:20px" >
+          {{#each prod in featuredProducts}}             
+                  
+                  {{> productItem product=prod size='large' isEdit='false'}} 
+                      
+          {{/each}}
+          </div>
+        
+        </div>
+      </div>
+      <div>
+
+    </div>
+    <!-- <a href="{{pathFor 'products'}}" class="btn-primary">Explore all our products</a> -->
+    </div>
+ 
+
+  </div>
+</template>

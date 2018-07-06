@@ -1,0 +1,85 @@
+
+<template name="tmp_product_sell">
+        <form class="product-link-add">
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <div class="form-group">
+                  <label for="img" class="col-form-label">Product Image</label>
+                  <div class="card" >
+                    <!--<img id="prdImg" class="img-responsive"  width="304" name="imgprd" height="236">
+                    -->
+                  </div>
+                  <div name="imgProgress">
+                    
+                    <img name="imgBusLogo" id="imgBuslogo" class="imgBusLogo img-fluid img-responsive panel-body "  width="236px" height="236px" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  /> 
+                  </div>
+                  <div id = "prdImages" name="prdImages" style="height:auto;width:auto" >
+               
+    
+                  </div>
+              
+                  <input  type="file" name="prodImg" class="prodImg" multiple="multiple"   id="prodImg"  placeholder="Please select product image">                  
+                </div>
+              </div>
+              <div class="form-group col-md-8">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <!-- <label for="title" class="col-form-label">Product Title</label> -->
+                    <input type="text" name="prdTitle" class="required"   placeholder="Product Title">
+                  </div>                 
+                  <div class="form-group col-md-6">
+                    <!-- <label for="description" class="col-form-label">Product Description</label> -->
+                    <input type="text" name = "prdDesc" class="required"    placeholder="Product Description">
+                  </div>                
+                  <div class="form-group col-md-2">
+                    <!-- <label for="price" class="col-form-label">Price</label> -->
+                    <input type="text" name ="prdprice" class="required"    placeholder="100.00">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <!--<input type="hidden" name="sellerId">{{Meteor.userId}}</input> -->
+                    <!-- <label for="lprdCat" class="col-form-label">Category</label> -->
+                    <select id="prdCat" class="prdCat form-control " name="prdCat" placeholder="Please select product category" >
+               
+                      {{#each get_Prod_Cat}}
+                          <option value="{{id}}">{{value}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+    
+                  
+                  <div class="form-group col-md-3">
+                    <!--<input type="hidden" name="sellerId">{{Meteor.userId}}</input>  
+                    <label for="expireDate" class="col-form-label">End Date</label>-->
+                    <select id="prdExpire" class="prdExpire form-control " name="prdExpire" placeholder="Please select product advert period length" >
+                      {{#each get_Add_Length}}
+                          <option value="{{id}}">{{value}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+                
+                <div class="form-group">
+                  <!-- <div class="form-row ">
+                     <div class="col-md-8">
+                        <input name="chkTC" class="button" type="button" onclick="document.getElementById('btnAdd').enable = this.value;" > 
+                        <label class="form-check-label">
+                            Accept terms and conditions
+                        </label>
+                    </div>
+                  </div> -->
+                {{#if currentUser }}
+                  <button id="btnAdd" type="submit" class="btn btn-primary">Start</button>
+                {{else}}
+                  <label for="expireDate" class="col-form-label">You must login and register as a Seller.</label>
+                {{/if}}
+                </div>
+                
+                
+              </form>
+    
+    </template>
+    

@@ -1,0 +1,27 @@
+<template name="products">
+        <div class="page products">
+        {{#nav title='Products' black=true back=false}}     
+
+        {{/nav}}
+        
+       <div>
+        <div class="bg-image buy">
+           
+        </div>
+       </div>
+          <div class="content-scrollable">
+              <img class="  " src="/img/app/bg-about-640x540.png" alt="seller" style="height:300px;width:100%"> 
+            <div class="list-products">    
+              {{#each prod in latestProducts}}             
+                 
+                 {{> productItem product=prod size='large' isEdit='false' }} 
+                     
+              {{/each}}
+            </div>
+          
+          </div>
+       
+        </div>
+</template>
+ 
+

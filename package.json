@@ -1,0 +1,29 @@
+{
+  "name": "justadit.today",
+  "version": "1.0.0",
+  "description": "Local market advertiser=====",
+  "main": "mobile-config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.51",
+    "babel-runtime": "^6.26.0",
+    "bcrypt": "^1.0.3",
+    "buffer": "^5.0.8",
+    "compress-js": "^2.0.2",
+    "compress.js": "^1.1.2",
+    "core-js": "^2.5.3",
+    "fs-extra": "^4.0.2",
+    "ios-sim": "^7.0.0",
+    "j-i-c": "^2.0.2",
+    "meteor-node-stubs": "^0.3.3",
+    "moment": "^2.20.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

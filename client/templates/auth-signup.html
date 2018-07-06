@@ -1,0 +1,73 @@
+<template name="authOverlaySignup">
+    <div class="page product {{activeTabClass}}">
+        {{#nav title='Signup' black=true back=false}}
+        {{/nav}}
+        <div class="content-scrollable static-nav ">
+          <div class="container-fluid" style="height: 100%;max-height: 360px">
+              <div class="" style="position:absolute;display:inline-block;left:30%;top:20%"> 
+                  <div class="panel-body" style="position: relative;left:-25%">
+                  {{#if currentUser}}
+                    {{>logout}}
+                  {{else}}
+                   
+                      {{>SignUp}}
+                     
+                  {{/if}}
+                  </div>
+              </div>
+          </div>
+            
+          <!-- <div style="position: relative;display:inline-block;height:400px;left:30%;top:30%">
+          <div id="login-screen">
+            {{> loginButtons}}
+          </div>
+          
+           
+        </div> -->
+              
+         </div>
+  </div>
+
+</template>
+
+<!-- <template name="logout">
+   
+   
+    <div  >
+        <button class="btn btn-primary col-xs-12 col-sm-12 btnLogout" id="btnLogout"   type="button">Logout</button>
+        <button class="btn btn-secondary col-xs-12 col-sm-12 btnCancel "   type="button">Cancel</button>
+      </div>
+   
+</template> -->
+
+
+
+<template name="SignUp">
+ 
+    <div class="panel-heading title-product"><h1>Signup</h1></div>
+      <form id="sign-up-form" class="sign-up-form">
+        <div>
+            <div class="form-group">
+                <label for="signupEmail">Email address</label>
+                <input type="email" class="form-control" id="signupEmail" placeholder="Email">
+              </div>
+              <div class="form-group">
+                  <label for="signupPassword">Password</label>
+                  <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="signupRPassword">Repeat Password</label>
+                    <input type="password" class="form-control" id="signupRPassword" placeholder="Repeat Password">
+                  </div>
+          <div style="">
+            <button name="btnSignUp" class="btnSignup btn btn-primary col-xs-12 col-sm-12 " id="btnSignUp"   type="button">Sign up</button>
+            <button class="btn btn-secondary col-xs-12 col-sm-12 btnCancel"   type="button">Cancel</button>
+          </div>
+          <div class="row">
+              <button id="bLogin" class="bLogin btn "  type="button">Login</button>             
+            </div>
+        </div>
+        </form>
+  
+  
+</template> 

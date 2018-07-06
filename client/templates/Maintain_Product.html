@@ -1,0 +1,122 @@
+
+<template name="tmp_product_maintain">
+    
+        <div class="page product {{activeTabClass}}">
+            {{uiLogger thisSelectedProduct }}
+                {{#with thisSelectedProduct}}   
+                
+                  {{#nav title=thisSelectedProduct.producttitle black=true back=true}}
+                    <!-- {{#if bookmarked}}
+                      <a href="#" class="nav-item js-remove-bookmark bookmarked"><span class="icon-bookmark"></span></a>
+                    {{else}}
+                      <a href="#" class="nav-item js-add-bookmark"><span class="icon-bookmark-hollow"></span></a>
+                    {{/if}} -->
+                  <!--<a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>-->
+                  {{/nav}}
+                
+                   
+                  <div class="content-scrollable static-nav product-scrollable">
+                    <div>
+
+                    </div>
+                    <div class="container-fluid panel-body form-row">
+
+                    {{#each imgs in getImageById prodImg}}               
+       
+                        <div  class="col-sm-4 col-md-4 col-lg-2" style="background-image:url('{{imgs.url}}');height:300px"   >    
+                                <!-- <img   class="img-responsive panel-body "     src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  /> -->
+                                
+                                 <img class="deleteImg btn primary-btn" src="/images/delImage.png" style="width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%" imgID="{{imgs._id}}">
+                           
+                        </div>                                                   
+     
+                     {{/each}}
+                    </div>
+                    <div class="container-fluid panel-body">
+                      <div class="form-row">
+                          <div class="col-md-4">
+                              <label>Product Title :</label>
+                              <input type="text" class="" id="txtTitle" value="{{producttitle}}">
+                          </div>
+                          <div class="col-md-4">
+                                <label>Product Description :</label>
+                                <input type="text" id="txtDescription" value="{{productDescription}}">
+                            </div>
+                            <div class="col-md-4">
+                                    <label>Product Price :</label>
+                                    <input type="text" id="txtPrice" value="{{price}}">
+                            </div>
+                            <div class="col-md-4">
+                                    <label>Product Category :</label>
+                                    <input type="text" id="txtPrice" value="{{price}}">
+                            </div>
+                            <div class="col-md-4">
+                                    <label>Product Status : Active</label>
+                                     
+                            </div>
+                            
+                              
+                      </div>     
+                    </div>
+                    
+                     <!-- <div class="card" >
+                        <div class="panel-body">
+                            <div class="card-block">
+                                <div class="media-left">
+                                   <div class="row">
+                                      <div class="col-md-4 col-sm-4">
+                                          <div style="width:236px;height:236px">
+                                              {{>showImage imgId=seller.busLogo}}
+                                            </div>
+                                      </div>
+                                      <div class="col-md-8 col-sm-8">
+                                        {{#if currentUser}}
+                                          <div class="media-body">
+                                              <h1 class="text-capitalize">{{seller.businessname}}</h1>
+                                                <div class="panel-body">
+                                                    <h1>Contact</h1>
+                                                    <div class="card-subtitle">
+                                                      <div class="row">
+                                                          <div class="col-sm-4">
+                                                              <span class="glyphicon glyphicon-phone"></span>
+                                                              {{seller.buscel}}
+                                                          </div>
+                                                      </div>
+                                                      <div class="row">
+                                                          <div class="col-sm-4">
+                                                              <span class="glyphicon glyphicon-envelope"></span>
+                                                              {{seller.busemail}}
+                                                          </div>
+                                                      </div>
+                                                      <div class="row">
+                                                          <div class="col-sm-4">
+                                                              <span class="glyphicon glyphicon-user"></span>
+                                                              {{seller.cont1}}/{{seller.cont2}}
+                                                          </div>
+                                                      </div>
+                                                    </div>                        
+                                                </div>                    
+                                              <div class="clearfix"></div>                 
+                                            </div>    
+                                      
+                                      
+                                            {{else}}
+                                              Please login to view details
+                                            {{/if}}    
+                                      </div>
+                                   </div>                    
+                                </div>            
+                                               
+                            </div>            
+                        </div>       
+                    </div>  
+                     -->
+                  </div>
+                  {{/with}}
+               </div>
+              
+                        
+              </template>
+              
+              
+              

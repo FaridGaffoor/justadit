@@ -1,0 +1,9 @@
+<template name="SellerProducts_tmp">
+
+        {{#each prod in myProducts}}
+             <div class="list-products">            
+                  {{> productItem product=prod size='large' isEdit=true }}         
+            </div>    
+        {{/each}}       
+                       
+      </template>

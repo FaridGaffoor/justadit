@@ -13,6 +13,7 @@
     "buffer": "^5.0.8",
     "compress-js": "^2.0.2",
     "compress.js": "^1.1.2",
+    "cordova": "^8.0.0",
     "core-js": "^2.5.3",
     "fs-extra": "^4.0.2",
     "ios-sim": "^7.0.0",

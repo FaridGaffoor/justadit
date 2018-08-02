@@ -11,11 +11,7 @@
           {{else}}
             <a href="#" class="nav-item js-add-bookmark"><span class="icon-bookmark-hollow"></span></a>
           {{/if}}
-          <!--
-            Camera it works
-            <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>
-        
-          -->
+ 
         {{/nav}}
           
         {{#if compare isEdit true}}
@@ -45,19 +41,12 @@
                     srcset="/img/app/noImage.jpg">
                     <img  class="card-img-top img-responsive " style="height:auto;width:100%;text-align: center" src="/img/app/noImage.jpg" alt=""  />  
                 </picture>
-                <!--<img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src='/img/app/noImage.jpg' alt=""  /> -->
+                
                 {{/if}}
 
                 {{/each}}   
 
-              <!-- {{#if prodImg !=""}}
-                
-             
-                <img class="card-img-top img-responsive" style="height:20em;width:100%;text-align: center" src="{{productPath}}{{getFirstElement prodImg}}" alt="{{productDescription}}">
-              {{/if}}
-                 -->
-                 
-               
+         
               </div>
               </a>
                <div class="card-block">
@@ -83,9 +72,7 @@
               <div style="text-align: center">
                  {{this.url prodImg}}
                 {{#each getCardImageById prodImg}}
-                <!-- {{#if this.url}}
-                  <img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
-                {{/if}} -->
+                
 
 
                 {{#if this.url}}

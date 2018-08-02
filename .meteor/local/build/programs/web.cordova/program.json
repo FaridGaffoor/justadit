@@ -1066,11 +1066,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/__cordova/app/app.js?hash=0a3425de3eeed4dff76eade7d9f219a84757a7d3",
+      "url": "/__cordova/app/app.js?hash=d329b06987740834841a32d4c431b424c4507489",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/__cordova/app/0a3425de3eeed4dff76eade7d9f219a84757a7d3.map",
-      "size": 362714,
-      "hash": "0a3425de3eeed4dff76eade7d9f219a84757a7d3"
+      "sourceMapUrl": "/__cordova/app/d329b06987740834841a32d4c431b424c4507489.map",
+      "size": 360618,
+      "hash": "d329b06987740834841a32d4c431b424c4507489"
     },
     {
       "path": "merged-stylesheets.css",

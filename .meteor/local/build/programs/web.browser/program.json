@@ -1057,11 +1057,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=3f24e5dad7ed75f8ea7ea296027fe48354f468e9",
+      "url": "/app/app.js?hash=91b78a6edeed73babaa4148eb2c88f27100822db",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/3f24e5dad7ed75f8ea7ea296027fe48354f468e9.map",
-      "size": 361302,
-      "hash": "3f24e5dad7ed75f8ea7ea296027fe48354f468e9"
+      "sourceMapUrl": "/app/91b78a6edeed73babaa4148eb2c88f27100822db.map",
+      "size": 359206,
+      "hash": "91b78a6edeed73babaa4148eb2c88f27100822db"
     },
     {
       "path": "merged-stylesheets.css",

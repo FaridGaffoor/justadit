@@ -92,9 +92,9 @@ Template.seller.onRendered(function() {
  
       var fileCount = event.currentTarget.files.length;
       
-      if (fileCount > 5)
+      if (fileCount > 10)
       {
-        alert('Oh No Too Many files , please select 5 or less');
+        alert('Oh No Too Many files , please select 10 or less');
         event.currentTarget  ="";        
         return false;
       }
@@ -105,26 +105,13 @@ Template.seller.onRendered(function() {
         console.log("Processing files " + event.currentTarget.files[i].name);
          //document.querySelector('imgProgress').outerHTML="<span>Processing file "+ event.currentTarget.files[i].name +"</span>";
          HandleClientImageFile(event.currentTarget.files[i],"prdImages");
-        //  if (event.currentTarget.files[i].size < 2000000)
-        //   {
-        //     HandleClientImageFile(event.currentTarget.files[i],"prdImages");
-        //     uploadSize=+event.currentTarget.files[i].size;        
-        //   }
-        //   else
-        //   {
-        //     isToBig = true;
-        //   }
+       
       }
 
-      // if (isToBig)
-      // {
-      //   alert('Some files have been removed , as they exceed the 2MB limit.');
-      // }
-     // document.querySelector('imgProgress').outerHTML="<span>Processing Complete. Payload size "+ uploadSize +"</span>";
+ 
       
      event.currentTarget  = "";
-     //event.currentTarget.setAttribute("multiple","multiple");
-     //event.currentTarget.setAttribute("class","fileUpload");              
+    
     }
   });
 
@@ -352,12 +339,7 @@ Template.seller.events({
  
 
        
-      //var compImage = compressImage(image,40,"jpg");
-      
-      //insertImg.src = data;    
-      //preview.appendChild(insertImg);    
-      
-
+    
     }
   
     fr.readAsDataURL(file);
@@ -371,8 +353,10 @@ Template.seller.events({
     if(typeof output_format !== "undefined" && output_format=="png"){
        mime_type = "image/png";
     }
+    var result_image_obj = new Image();
     
-
+    try
+    {
     var cvs = document.createElement('canvas');
     cvs.style.width = source_img_obj.naturalWidth;
     cvs.style.height = source_img_obj.naturalHeight;
@@ -380,10 +364,15 @@ Template.seller.events({
     //ctx.drawImage(img,0,0,img.width,img.height,0,0,400,300);
     var ctx = cvs.getContext("2d").drawImage(source_img_obj, 0, 0,source_img_obj.naturalHeight,source_img_obj.naturalWidth, 0, 0,source_img_obj.naturalHeight,source_img_obj.naturalWidth);
     var newImageData = cvs.toDataURL(mime_type, quality/100);
-    var result_image_obj = new Image();
+    
     result_image_obj.src = newImageData;
-    result_image_obj.style.height = source_img_obj.naturalWidth;
-    result_image_obj.style.width = source_img_obj.naturalHeight;
+    result_image_obj.style.width = source_img_obj.naturalWidth;
+    result_image_obj.style.height = source_img_obj.naturalHeight;
+    }
+    catch (exp)
+    {
+        result_image_obj = null;
+    }
 
     return result_image_obj; 
 }
@@ -461,23 +450,8 @@ Template.seller.events({
                     saveId = Images.insert(fr, function (err, fileObj) {
                       // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
                       });
-                      Loading.stop();
-            
-           
-            // var productImg = new FS.File(productImages[i]);
-            // // if (productImg.size() < 1000000)
-            // // {
-            //   productImg.data = compressedImages[i].src;
-            //   productImg.sellerId = Meteor.userId();
-            //   productImg.ImageCat = "ProductImage";
-            //   productImg.ImageType = "ProductDisplay";
-            //   productImg.ImageId = prodimgId ;
-
-               
-             
-
-             
-            // }
+                      Loading.stop();         
+                  
         }  
         }
         

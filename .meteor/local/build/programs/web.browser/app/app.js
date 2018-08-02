@@ -1032,7 +1032,7 @@ Template["productItem"] = new Template("Template.productItem", (function() {
         }, HTML.SPAN({
           class: "icon-bookmark-hollow"
         })), "\n          " ];
-      }), "\n          ", HTML.Comment('\n            Camera it works\n            <a href="#" class="nav-item js-share"><span class="icon-camera"></span></a>\n        \n          '), "\n        " ];
+      }), "\n \n        " ];
     });
   }), "\n          \n        ", Blaze.If(function() {
     return Spacebars.dataMustache(view.lookup("compare"), view.lookup("isEdit"), true);
@@ -1091,9 +1091,9 @@ Template["productItem"] = new Template("Template.productItem", (function() {
             style: "height:auto;width:100%;text-align: center",
             src: "/img/app/noImage.jpg",
             alt: ""
-          }), "  \n                "), "\n                ", HTML.Comment('<img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src=\'/img/app/noImage.jpg\' alt=""  /> '), "\n                " ];
+          }), "  \n                "), "\n                \n                " ];
         }), "\n\n                " ];
-      }), "   \n\n              ", HTML.Comment(' {{#if prodImg !=""}}\n                \n             \n                <img class="card-img-top img-responsive" style="height:20em;width:100%;text-align: center" src="{{productPath}}{{getFirstElement prodImg}}" alt="{{productDescription}}">\n              {{/if}}\n                 '), "\n                 \n               \n              "), "\n              "), "\n               ", HTML.DIV({
+      }), "   \n\n         \n              "), "\n              "), "\n               ", HTML.DIV({
         class: "card-block"
       }, "\n                ", HTML.H4({
         class: "card-title"
@@ -1145,7 +1145,7 @@ Template["productItem"] = new Template("Template.productItem", (function() {
       }), "\n                ", Blaze.Each(function() {
         return Spacebars.dataMustache(view.lookup("getCardImageById"), view.lookup("prodImg"));
       }, function() {
-        return [ "\n                ", HTML.Comment(' {{#if this.url}}\n                  <img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src="{{this.url store=\'images\' uploading=\'/images/uploading.gif\' storing=\'/images/storing.gif\'}}" alt=""  />  \n                {{/if}} '), "\n\n\n                ", Blaze.If(function() {
+        return [ "\n                \n\n\n                ", Blaze.If(function() {
           return Spacebars.call(Spacebars.dot(view.lookup("."), "url"));
         }, function() {
           return [ "\n                ", HTML.getTag("picture")("\n                  ", HTML.SOURCE({
@@ -3519,8 +3519,8 @@ Template.tmp_product_sell.events({
     document.getElementById('prdImages').innerHTML = "";
     var fileCount = event.currentTarget.files.length;
 
-    if (fileCount > 5) {
-      alert('Oh No Too Many files , please select 5 or less');
+    if (fileCount > 10) {
+      alert('Oh No Too Many files , please select 10 or less');
       event.currentTarget = "";
       return false;
     }
@@ -3531,24 +3531,10 @@ Template.tmp_product_sell.events({
     for (i = 0; i < fileCount; i++) {
       console.log("Processing files " + event.currentTarget.files[i].name); //document.querySelector('imgProgress').outerHTML="<span>Processing file "+ event.currentTarget.files[i].name +"</span>";
 
-      HandleClientImageFile(event.currentTarget.files[i], "prdImages"); //  if (event.currentTarget.files[i].size < 2000000)
-      //   {
-      //     HandleClientImageFile(event.currentTarget.files[i],"prdImages");
-      //     uploadSize=+event.currentTarget.files[i].size;        
-      //   }
-      //   else
-      //   {
-      //     isToBig = true;
-      //   }
-    } // if (isToBig)
-    // {
-    //   alert('Some files have been removed , as they exceed the 2MB limit.');
-    // }
-    // document.querySelector('imgProgress').outerHTML="<span>Processing Complete. Payload size "+ uploadSize +"</span>";
+      HandleClientImageFile(event.currentTarget.files[i], "prdImages");
+    }
 
-
-    event.currentTarget = ""; //event.currentTarget.setAttribute("multiple","multiple");
-    //event.currentTarget.setAttribute("class","fileUpload");              
+    event.currentTarget = "";
   }
 });
 Template.seller.events({
@@ -3725,9 +3711,7 @@ function HandleClientImageFile(file, targetElement) {
       preview.appendChild(newImg);
     };
 
-    image.src = data; //var compImage = compressImage(image,40,"jpg");
-    //insertImg.src = data;    
-    //preview.appendChild(insertImg);    
+    image.src = data;
   };
 
   fr.readAsDataURL(file);
@@ -3740,16 +3724,22 @@ function compressImage(source_img_obj, quality, output_format) {
     mime_type = "image/png";
   }
 
-  var cvs = document.createElement('canvas');
-  cvs.style.width = source_img_obj.naturalWidth;
-  cvs.style.height = source_img_obj.naturalHeight; //ctx.drawImage(img,0,0,img.width,img.height,0,0,400,300);
-
-  var ctx = cvs.getContext("2d").drawImage(source_img_obj, 0, 0, source_img_obj.naturalHeight, source_img_obj.naturalWidth, 0, 0, source_img_obj.naturalHeight, source_img_obj.naturalWidth);
-  var newImageData = cvs.toDataURL(mime_type, quality / 100);
   var result_image_obj = new Image();
-  result_image_obj.src = newImageData;
-  result_image_obj.style.height = source_img_obj.naturalWidth;
-  result_image_obj.style.width = source_img_obj.naturalHeight;
+
+  try {
+    var cvs = document.createElement('canvas');
+    cvs.style.width = source_img_obj.naturalWidth;
+    cvs.style.height = source_img_obj.naturalHeight; //ctx.drawImage(img,0,0,img.width,img.height,0,0,400,300);
+
+    var ctx = cvs.getContext("2d").drawImage(source_img_obj, 0, 0, source_img_obj.naturalHeight, source_img_obj.naturalWidth, 0, 0, source_img_obj.naturalHeight, source_img_obj.naturalWidth);
+    var newImageData = cvs.toDataURL(mime_type, quality / 100);
+    result_image_obj.src = newImageData;
+    result_image_obj.style.width = source_img_obj.naturalWidth;
+    result_image_obj.style.height = source_img_obj.naturalHeight;
+  } catch (exp) {
+    result_image_obj = null;
+  }
+
   return result_image_obj;
 }
 
@@ -3797,15 +3787,7 @@ if (Meteor.isClient) {
 
             saveId = Images.insert(fr, function (err, fileObj) {// Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
             });
-            Loading.stop(); // var productImg = new FS.File(productImages[i]);
-            // // if (productImg.size() < 1000000)
-            // // {
-            //   productImg.data = compressedImages[i].src;
-            //   productImg.sellerId = Meteor.userId();
-            //   productImg.ImageCat = "ProductImage";
-            //   productImg.ImageType = "ProductDisplay";
-            //   productImg.ImageId = prodimgId ;
-            // }
+            Loading.stop();
           }
         }
       } catch (error) {

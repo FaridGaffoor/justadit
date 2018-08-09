@@ -18,6 +18,7 @@
     "fs-extra": "^4.0.2",
     "ios-sim": "^7.0.0",
     "j-i-c": "^2.0.2",
+    "lazy-load-images": "^1.0.1",
     "meteor-node-stubs": "^0.3.3",
     "moment": "^2.20.1"
   },

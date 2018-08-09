@@ -24,9 +24,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/modules.js?hash=f1567a2953b9f6fa6026f53c59b5bf2474fd1d0d",
-      "size": 264043,
-      "hash": "f1567a2953b9f6fa6026f53c59b5bf2474fd1d0d"
+      "url": "/packages/modules.js?hash=0962ed0e7223d082832c581ed85a82eee689faa9",
+      "size": 278345,
+      "hash": "0962ed0e7223d082832c581ed85a82eee689faa9"
     },
     {
       "path": "packages/modern-browsers.js",
@@ -1057,11 +1057,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=91b78a6edeed73babaa4148eb2c88f27100822db",
+      "url": "/app/app.js?hash=a8502945cd7cffdc7439e8f8eda76cb6fa55c0b2",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/91b78a6edeed73babaa4148eb2c88f27100822db.map",
-      "size": 359206,
-      "hash": "91b78a6edeed73babaa4148eb2c88f27100822db"
+      "sourceMapUrl": "/app/a8502945cd7cffdc7439e8f8eda76cb6fa55c0b2.map",
+      "size": 361909,
+      "hash": "a8502945cd7cffdc7439e8f8eda76cb6fa55c0b2"
     },
     {
       "path": "merged-stylesheets.css",
@@ -1138,6 +1138,15 @@
       "hash": "b3253b854b958bb4f2e4c2dae5ff45c8237dc1d6"
     },
     {
+      "path": "app/Untitled 2.psdb",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/Untitled 2.psdb",
+      "size": 147982,
+      "hash": "c7a41a3a19767cdae03d52e1e4a0bddaad0277da"
+    },
+    {
       "path": "app/apple-touch-icon-precomposed.png",
       "where": "client",
       "type": "asset",
@@ -1172,6 +1181,15 @@
       "url": "/favicon.png",
       "size": 3279,
       "hash": "394c749bc4ce144fa31f384f7c87edf22819e964"
+    },
+    {
+      "path": "app/favicon.psdb",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/favicon.psdb",
+      "size": 657775,
+      "hash": "cb40fc80582c4cdfe221101c3fc231f851d4b125"
     },
     {
       "path": "app/faviconold.png",
@@ -1363,6 +1381,15 @@
       "hash": "7215da4b304a97a5263fdfc675cb825d508b3fcd"
     },
     {
+      "path": "app/images/justaditface.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/justaditface.png",
+      "size": 103990,
+      "hash": "0b704c91ba7a4ba0a82325b724f6eaed82101b76"
+    },
+    {
       "path": "app/images/shop.png",
       "where": "client",
       "type": "asset",
@@ -1469,6 +1496,15 @@
       "url": "/img/app/chrome-iphone6-432x882@2x.jpg",
       "size": 89340,
       "hash": "2f89a1490e5ec32839450cdf64f63b974ff0f2c0"
+    },
+    {
+      "path": "app/img/app/justaditface.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/app/justaditface.png",
+      "size": 103990,
+      "hash": "0b704c91ba7a4ba0a82325b724f6eaed82101b76"
     },
     {
       "path": "app/img/app/logo-local.png",
@@ -2275,7 +2311,7 @@
       "path": "head.html",
       "where": "internal",
       "type": "head",
-      "hash": "4f16bc71d9e02958abb5754bdf63679c766aaaf8"
+      "hash": "ad192938d62be5771534158f1d0d7eb61263fb80"
     }
   ]
 }

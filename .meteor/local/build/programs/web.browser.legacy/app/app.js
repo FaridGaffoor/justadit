@@ -14,7 +14,7 @@ Template["tmp_product_maintain"] = new Template("Template.tmp_product_maintain",
     class: function() {
       return [ "page product ", Spacebars.mustache(view.lookup("activeTabClass")) ];
     }
-  }, "\n            ", Blaze.View("lookup:uiLogger", function() {
+  }, "\n            \n            ", Blaze.View("lookup:uiLogger", function() {
     return Spacebars.mustache(view.lookup("uiLogger"), view.lookup("thisSelectedProduct"));
   }), "\n                ", Spacebars.With(function() {
     return Spacebars.call(view.lookup("thisSelectedProduct"));
@@ -31,7 +31,7 @@ Template["tmp_product_maintain"] = new Template("Template.tmp_product_maintain",
       });
     }), "\n                \n                   \n                  ", HTML.DIV({
       class: "content-scrollable static-nav product-scrollable"
-    }, "\n                    ", HTML.DIV("\n\n                    "), "\n                    ", HTML.DIV({
+    }, "\n                    ", HTML.DIV("\n                            Static Nav\n                    "), "\n                    ", HTML.DIV({
       class: "container-fluid panel-body form-row"
     }, "\n\n                    ", Blaze.Each(function() {
       return {
@@ -47,11 +47,18 @@ Template["tmp_product_maintain"] = new Template("Template.tmp_product_maintain",
       }, "    \n                                ", HTML.Comment(" <img   class=\"img-responsive panel-body \"     src=\"{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}\" alt=\"\"  /> "), "\n                                \n                                 ", HTML.IMG({
         class: "deleteImg btn primary-btn",
         src: "/images/delImage.png",
-        style: "width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%",
+        style: "width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%;float:left",
         imgid: function() {
           return Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "_id"));
         }
-      }), "\n                           \n                        "), "                                                   \n     \n                     " ];
+      }), "\n                                 ", HTML.IMG({
+        class: "deleteImg btn primary-btn ",
+        src: "/images/delImage.png",
+        style: "width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%;float:left",
+        imgid: function() {
+          return Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "_id"));
+        }
+      }), "\n                        "), "                                                   \n     \n                     " ];
     }), "\n                    "), "\n                    ", HTML.DIV({
       class: "container-fluid panel-body"
     }, "\n                      ", HTML.DIV({
@@ -91,7 +98,13 @@ Template["tmp_product_maintain"] = new Template("Template.tmp_product_maintain",
       }
     }), "\n                            "), "\n                            ", HTML.DIV({
       class: "col-md-4"
-    }, "\n                                    ", HTML.LABEL("Product Status : Active"), "\n                                     \n                            "), "\n                            \n                              \n                      "), "     \n                    "), "\n                    \n                     ", HTML.Comment(' <div class="card" >\n                        <div class="panel-body">\n                            <div class="card-block">\n                                <div class="media-left">\n                                   <div class="row">\n                                      <div class="col-md-4 col-sm-4">\n                                          <div style="width:236px;height:236px">\n                                              {{>showImage imgId=seller.busLogo}}\n                                            </div>\n                                      </div>\n                                      <div class="col-md-8 col-sm-8">\n                                        {{#if currentUser}}\n                                          <div class="media-body">\n                                              <h1 class="text-capitalize">{{seller.businessname}}</h1>\n                                                <div class="panel-body">\n                                                    <h1>Contact</h1>\n                                                    <div class="card-subtitle">\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-phone"></span>\n                                                              {{seller.buscel}}\n                                                          </div>\n                                                      </div>\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-envelope"></span>\n                                                              {{seller.busemail}}\n                                                          </div>\n                                                      </div>\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-user"></span>\n                                                              {{seller.cont1}}/{{seller.cont2}}\n                                                          </div>\n                                                      </div>\n                                                    </div>                        \n                                                </div>                    \n                                              <div class="clearfix"></div>                 \n                                            </div>    \n                                      \n                                      \n                                            {{else}}\n                                              Please login to view details\n                                            {{/if}}    \n                                      </div>\n                                   </div>                    \n                                </div>            \n                                               \n                            </div>            \n                        </div>       \n                    </div>  \n                     '), "\n                  "), "\n                  " ];
+    }, "\n                                    ", HTML.LABEL("Product Status : Active"), "\n                                     \n                            "), "\n                            \n                              \n                      "), "     \n                     \n                    "), "\n                    \n                     ", HTML.Comment(' <div class="card" >\n                        <div class="panel-body">\n                            <div class="card-block">\n                                <div class="media-left">\n                                   <div class="row">\n                                      <div class="col-md-4 col-sm-4">\n                                          <div style="width:236px;height:236px">\n                                              {{>showImage imgId=seller.busLogo}}\n                                            </div>\n                                      </div>\n                                      <div class="col-md-8 col-sm-8">\n                                        {{#if currentUser}}\n                                          <div class="media-body">\n                                              <h1 class="text-capitalize">{{seller.businessname}}</h1>\n                                                <div class="panel-body">\n                                                    <h1>Contact</h1>\n                                                    <div class="card-subtitle">\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-phone"></span>\n                                                              {{seller.buscel}}\n                                                          </div>\n                                                      </div>\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-envelope"></span>\n                                                              {{seller.busemail}}\n                                                          </div>\n                                                      </div>\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-user"></span>\n                                                              {{seller.cont1}}/{{seller.cont2}}\n                                                          </div>\n                                                      </div>\n                                                    </div>                        \n                                                </div>                    \n                                              <div class="clearfix"></div>                 \n                                            </div>    \n                                      \n                                      \n                                            {{else}}\n                                              Please login to view details\n                                            {{/if}}    \n                                      </div>\n                                   </div>                    \n                                </div>            \n                                               \n                            </div>            \n                        </div>       \n                    </div>  \n                     '), "\n\n                     ", HTML.DIV("\n                        ", HTML.BUTTON({
+      type: "submit",
+      value: "Edit/Save"
+    }), "\n                        \n                        ", HTML.BUTTON({
+      type: "button",
+      value: "Cancel"
+    }), "\n                    "), "\n                  "), "\n                  " ];
   }), "\n               ");
 }));
 
@@ -122,9 +135,14 @@ Template["tmp_product_sell"] = new Template("Template.tmp_product_sell", (functi
   }, "\n                    \n                    ", HTML.IMG({
     name: "imgBusLogo",
     id: "imgBuslogo",
-    class: "imgBusLogo img-fluid img-responsive panel-body ",
+    class: "imgBusLogo img-fluid img-responsive panel-body lazy-loaded ",
     width: "236px",
     height: "236px",
+    "data-lazy-load-src": function() {
+      return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
+        store: "images"
+      }));
+    },
     src: function() {
       return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
         store: "images",
@@ -212,7 +230,7 @@ Template["about"] = new Template("Template.about", (function() {
     };
   }, function() {
     return Spacebars.include(view.lookupTemplate("nav"));
-  }), HTML.Raw('\n\n    <div class="content-scrollable">\n      <div class="bg-image about">\n        <h1 class="title-about">\n          <img src="img/app/title-about.svg" alt="Go Local">\n        </h1>\n      </div>\n      <div class="description-about">\n        <p>Be a local wherever you go. Connect to Local Market’s community to get the latest news, hand-picked products , and share with other locals. .</p>\n\n        <p>Just Ad It was built of the Local Market theme  made by <a href="http://percolatestudio.com" target="_blank" class="js-open">Percolate Studio</a> .</p>\n      </div>\n\n    </div>\n    \n  '));
+  }), HTML.Raw('\n\n    <div class="content-scrollable">\n      <div class="bg-image about">\n        <h1 class="title-about">\n          <img src="img/app/title-about.svg" data-lazy-load-src="img/app/title-about.svg" class="lazy-loaded" alt="Go Local">\n        </h1>\n      </div>\n      <div class="description-about">\n        <p>Be a local wherever you go. Connect to Local Market’s community to get the latest news, hand-picked products , and share with other locals. .</p>\n\n        <p>Just Ad It was built of the Local Market theme  made by <a href="http://percolatestudio.com" target="_blank" class="js-open">Percolate Studio</a> .</p>\n      </div>\n\n    </div>\n    \n  '));
 }));
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -242,7 +260,10 @@ Template["activity"] = new Template("Template.activity", (function() {
     src: function() {
       return Spacebars.mustache(view.lookup("userAvatar"));
     },
-    class: "image-avatar"
+    "data-lazy-load-src": function() {
+      return Spacebars.mustache(view.lookup("userAvatar"));
+    },
+    class: "lazy-loaded image-avatar"
   }), "\n      "), "\n      ", HTML.SPAN({
     class: "meta"
   }, "\n        ", HTML.SPAN({
@@ -652,8 +673,8 @@ Template["carousel"] = new Template("Template.carousel", (function() {
   var view = this;
   return HTML.DIV(HTML.Raw('\n    <!--id="Caro{{carID}}"-->\n    '), HTML.DIV({
     id: "Caro",
-    class: "carousel slide ",
-    style: "width:100%;margin :auto;height:400px;padding:4em;background-color: #d83e14",
+    class: "carousel slide bg-image",
+    style: "width:100%;margin :auto;height:410px;padding:4em;background-image:url('/img/app/bg-about-640x540.png')",
     "data-ride": "carousel"
   }, "\n        ", HTML.OL({
     class: "carousel-indicators"
@@ -721,8 +742,13 @@ Template["carousel"] = new Template("Template.carousel", (function() {
         }), "\n                            ", HTML.IMG({
           name: "imgBusAvatar",
           id: "imgBusAvatar",
-          class: "card-img-top img-responsive ",
+          class: "card-img-top img-responsive lazy-loaded image-avatar",
           style: "position:relative;display: block;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;height:auto;width:auto;max-height:380px ",
+          "data-lazy-load-src": function() {
+            return Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "url"), Spacebars.kw({
+              store: "images"
+            }));
+          },
           src: function() {
             return Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "url"), Spacebars.kw({
               store: "images",
@@ -751,7 +777,7 @@ Template["carousel"] = new Template("Template.carousel", (function() {
         }), "\n                                  ", HTML.IMG({
           name: "imgBusAvatar",
           id: "imgBusAvatar",
-          class: "card-img-top img-responsive ",
+          class: "card-img-top img-responsive  lazy-loaded image-avatar",
           style: "position:relative;display: block;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;height:auto;width:auto;max-height:380px ",
           src: function() {
             return Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "url"), Spacebars.kw({
@@ -759,6 +785,11 @@ Template["carousel"] = new Template("Template.carousel", (function() {
               loading: "/images/uploading.gif",
               uploading: "/images/uploading.gif",
               storing: "/images/storing.gif"
+            }));
+          },
+          "data-lazy-load-src": function() {
+            return Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "url"), Spacebars.kw({
+              store: "images"
             }));
           },
           alt: ""
@@ -808,14 +839,14 @@ Template["home"] = new Template("Template.home", (function() {
     class: "page home"
   }, "\n\n    ", Blaze._TemplateWith(function() {
     return {
-      title: Spacebars.call("just adit"),
+      title: Spacebars.call("justadit"),
       black: Spacebars.call(true)
     };
   }, function() {
     return Spacebars.include(view.lookupTemplate("nav"));
   }), "\n     \n\n    ", HTML.DIV({
     class: "content-scrollable"
-  }, "\n      ", HTML.Raw('<div class="bg-image home">\n        <h1 class="title-home">\n          <!--<img src="img/app/logo-local.svg" alt="Local Market"/>-->\n          <img src="img/app/logo-local.png" alt="just adit now">\n        </h1>\n        <span class="hours"><span class="title-callout">Advertise </span>\n        Anytime you want.</span>\n        <span class="arrow"></span>\n      </div>'), "\n\n      ", HTML.Raw('<div class="callout-news">\n        <span class="title-callout">Ticker</span>\n         \n         \n      </div>'), "\n      ", HTML.DIV("\n      \n      ", HTML.Raw('<!--<a href="{{pathFor \'feed\'}}" class="btn-primary">See who\'s selling</a>-->'), "\n      ", HTML.A({
+  }, "\n      ", HTML.Raw('<div class="bg-image home">\n        <h1 class="title-home">\n          <!--<img src="img/app/logo-local.svg" alt="Local Market"/>-->\n          <img src="img/app/justaditface.png" data-lazy-load-src="img/app/justaditface.png" class="lazy-loaded" alt="just ad it">\n        </h1>\n        <span class="hours"><span class="title-callout">Advertise anything</span>\n        Anytime you want.</span>\n        <span class="arrow"></span>\n      </div>'), "\n\n      ", HTML.Raw('<div class="callout-news">\n        <span class="title-callout">Ticker</span>\n         \n         \n      </div>'), "\n      ", HTML.DIV("\n      \n      ", HTML.Raw('<!--<a href="{{pathFor \'feed\'}}" class="btn-primary">See who\'s selling</a>-->'), "\n      ", HTML.A({
     href: function() {
       return Spacebars.mustache(view.lookup("pathFor"), "products", Spacebars.kw({
         ":_searchTerm": "All"
@@ -1071,8 +1102,13 @@ Template["productItem"] = new Template("Template.productItem", (function() {
               }));
             }
           }), "\n                    ", HTML.IMG({
-            class: "card-img-top img-responsive ",
+            class: "card-img-top img-responsive lazy-loaded",
             style: "height:auto;width:100%;text-align: center",
+            "data-lazy-load-src": function() {
+              return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
+                store: "images"
+              }));
+            },
             src: function() {
               return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
                 store: "images",
@@ -1087,7 +1123,7 @@ Template["productItem"] = new Template("Template.productItem", (function() {
             media: "(min-width:400px)",
             srcset: "/img/app/noImage.jpg"
           }), "\n                    ", HTML.IMG({
-            class: "card-img-top img-responsive ",
+            class: "card-img-top img-responsive lazy-loaded",
             style: "height:auto;width:100%;text-align: center",
             src: "/img/app/noImage.jpg",
             alt: ""
@@ -1158,13 +1194,18 @@ Template["productItem"] = new Template("Template.productItem", (function() {
               }));
             }
           }), "\n                    ", HTML.IMG({
-            class: "card-img-top img-responsive ",
+            class: "card-img-top img-responsive lazy-loaded",
             style: "height:auto;width:100%;text-align: center",
             src: function() {
               return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
                 store: "images",
                 uploading: "/images/uploading.gif",
                 storing: "/images/storing.gif"
+              }));
+            },
+            "data-lazy-load-src": function() {
+              return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
+                store: "images"
               }));
             },
             alt: ""
@@ -1211,9 +1252,14 @@ Template["showCardImage"] = new Template("Template.showCardImage", (function() {
     return Spacebars.dataMustache(view.lookup("getImage"), view.lookup("imgId"));
   }, function() {
     return [ "\n        ", HTML.DIV("\n       \n            ", HTML.IMG({
-      class: " img-responsive panel-body ",
+      class: " img-responsive panel-body lazy-loaded",
       width: "236px",
       height: "236px",
+      "data-lazy-load-src": function() {
+        return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
+          store: "images"
+        }));
+      },
       src: function() {
         return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
           store: "images",
@@ -2093,7 +2139,10 @@ Template["shareOverlay"] = new Template("Template.shareOverlay", (function() {
         src: function() {
           return Spacebars.mustache(view.lookup("avatar"));
         },
-        class: "image-avatar"
+        "data-lazy-load-src": function() {
+          return Spacebars.mustache(view.lookup("avatar"));
+        },
+        class: "lazy-loaded image-avatar"
       }), "\n            "), "\n\n            ", HTML.TEXTAREA({
         name: "text",
         type: "text",
@@ -2201,7 +2250,7 @@ Template["showImage"] = new Template("Template.showImage", (function() {
     return Spacebars.dataMustache(view.lookup("getSellerImage"), view.lookup("imgId"));
   }, function() {
     return [ "\n    ", HTML.DIV("\n        ", HTML.IMG({
-      class: " img-responsive panel-body ",
+      class: " img-responsive panel-body lazy-loaded",
       width: "236px",
       height: "236px",
       src: function() {
@@ -2209,6 +2258,11 @@ Template["showImage"] = new Template("Template.showImage", (function() {
           store: "images",
           uploading: "/images/uploading.gif",
           storing: "/images/storing.gif"
+        }));
+      },
+      "data-lazy-load-src": function() {
+        return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({
+          store: "images"
         }));
       },
       alt: ""
@@ -3167,7 +3221,7 @@ Template.product.events({
                                                                                                                        //
 var TAB_KEY = 'productShowTab';
 Template.product.onCreated(function () {
-  debugger;
+  //debugger;
   if (Router.current().params._searchTerm) Template.product.setTab('feed');else Template.product.setTab('product');
 });
 Template.product.onRendered(function () {// this.$('.product').touchwipe({
@@ -4436,7 +4490,11 @@ var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
 //                                                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                                        //
-if (Meteor.isClient) {//const compress = require('compress.js');
+if (Meteor.isClient) {
+  //const compress = require('compress.js');
+  var lazyLoadImages = require('lazy-load-images');
+
+  lazyLoadImages.init();
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

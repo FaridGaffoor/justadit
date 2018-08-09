@@ -1,7 +1,7 @@
 <template name="carousel">
 <div>
     <!--id="Caro{{carID}}"-->
-    <div id="Caro"   class="carousel slide "  style="width:100%;margin :auto;height:400px;padding:4em;background-color: #d83e14"  data-ride="carousel">
+    <div id="Caro"   class="carousel slide bg-image"  style="width:100%;margin :auto;height:410px;padding:4em;background-image:url('/img/app/bg-about-640x540.png')"  data-ride="carousel">
         <ol class="carousel-indicators">          
             {{#each imgs in getImageById prodImg}}      
                 
@@ -36,7 +36,7 @@
                           media="(max-height:380px)"
                            
                             srcset="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}">
-                            <img name="imgBusAvatar" id="imgBusAvatar" class="card-img-top img-responsive "  style="position:relative;display: block;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;height:auto;width:auto;max-height:380px "    src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />
+                            <img name="imgBusAvatar" id="imgBusAvatar" class="card-img-top img-responsive lazy-loaded image-avatar"  style="position:relative;display: block;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;height:auto;width:auto;max-height:380px "  data-lazy-load-src="{{imgs.url store='images'}}"    src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />
                         </picture>
                         
                         <!--<img  class="card-img-top img-responsive " style="height:20em;width:100%;text-align: center" src='/img/app/noImage.jpg' alt=""  /> 
@@ -55,7 +55,7 @@
                                   media="(max-height:380px)"
                                  
                                   srcset="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}">
-                                  <img name="imgBusAvatar" id="imgBusAvatar" class="card-img-top img-responsive "  style="position:relative;display: block;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;height:auto;width:auto;max-height:380px "     src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />
+                                  <img name="imgBusAvatar" id="imgBusAvatar" class="card-img-top img-responsive  lazy-loaded image-avatar"  style="position:relative;display: block;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;height:auto;width:auto;max-height:380px "     src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" data-lazy-load-src="{{imgs.url store='images'}}" alt=""  />
                               </picture>     
                        <!-- <img name="imgBusAvatar" id="imgBusAvatar" class="imgBusAvatar img-responsive panel-body "  style="position:relative;display: block;margin-left:auto;margin-right:auto;width:auto;height:380px"   src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />
                        -->

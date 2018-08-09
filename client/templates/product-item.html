@@ -32,14 +32,14 @@
                   <source
                     media="(min-width:400px)"
                     srcset="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}">
-                    <img  class="card-img-top img-responsive " style="height:auto;width:100%;text-align: center" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+                    <img  class="card-img-top img-responsive lazy-loaded" style="height:auto;width:100%;text-align: center" data-lazy-load-src="{{this.url store='images'}}"  src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
                 </picture>
                 {{else}}
                 <picture>
                   <source
                     media="(min-width:400px)"
                     srcset="/img/app/noImage.jpg">
-                    <img  class="card-img-top img-responsive " style="height:auto;width:100%;text-align: center" src="/img/app/noImage.jpg" alt=""  />  
+                    <img  class="card-img-top img-responsive lazy-loaded" style="height:auto;width:100%;text-align: center" src="/img/app/noImage.jpg" alt=""  />  
                 </picture>
                 
                 {{/if}}
@@ -80,7 +80,7 @@
                   <source
                     media="(min-width:400px)"
                     srcset="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}">
-                    <img  class="card-img-top img-responsive " style="height:auto;width:100%;text-align: center" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+                    <img  class="card-img-top img-responsive lazy-loaded" style="height:auto;width:100%;text-align: center" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}"   data-lazy-load-src="{{this.url store='images'}}" alt=""  />  
                 </picture>
                 {{else}}
                 <picture>
@@ -126,7 +126,7 @@
         {{#with getImage imgId  }}
         <div>
        
-            <img class=" img-responsive panel-body "  width="236px" height="236px" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+            <img class=" img-responsive panel-body lazy-loaded"  width="236px" height="236px"  data-lazy-load-src="{{this.url store='images'}}"  src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}"   alt=""  />  
             </div>
         {{/with}}
     </div>

@@ -2,6 +2,7 @@
 <template name="tmp_product_maintain">
     
         <div class="page product {{activeTabClass}}">
+            
             {{uiLogger thisSelectedProduct }}
                 {{#with thisSelectedProduct}}   
                 
@@ -17,7 +18,7 @@
                    
                   <div class="content-scrollable static-nav product-scrollable">
                     <div>
-
+                            Static Nav
                     </div>
                     <div class="container-fluid panel-body form-row">
 
@@ -26,8 +27,8 @@
                         <div  class="col-sm-4 col-md-4 col-lg-2" style="background-image:url('{{imgs.url}}');height:300px"   >    
                                 <!-- <img   class="img-responsive panel-body "     src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  /> -->
                                 
-                                 <img class="deleteImg btn primary-btn" src="/images/delImage.png" style="width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%" imgID="{{imgs._id}}">
-                           
+                                 <img class="deleteImg btn primary-btn" src="/images/delImage.png" style="width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%;float:left" imgID="{{imgs._id}}">
+                                 <img class="deleteImg btn primary-btn " src="/images/delImage.png" style="width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%;float:left" imgID="{{imgs._id}}">
                         </div>                                                   
      
                      {{/each}}
@@ -57,6 +58,7 @@
                             
                               
                       </div>     
+                     
                     </div>
                     
                      <!-- <div class="card" >
@@ -111,6 +113,12 @@
                         </div>       
                     </div>  
                      -->
+
+                     <div>
+                        <button type="submit"  value="Edit/Save"></button>
+                        
+                        <button type="button" value="Cancel"></button>
+                    </div>
                   </div>
                   {{/with}}
                </div>

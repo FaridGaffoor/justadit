@@ -3,7 +3,7 @@
    
     {{#with getSellerImage imgId  }}
     <div>
-        <img  class=" img-responsive panel-body "  width="236px" height="236px" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  />  
+        <img  class=" img-responsive panel-body lazy-loaded"  width="236px" height="236px" src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" data-lazy-load-src="{{this.url store='images'}}"  alt=""  />  
     </div>
     {{/with}}
 </div>

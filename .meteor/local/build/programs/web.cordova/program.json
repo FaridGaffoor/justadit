@@ -24,9 +24,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/__cordova/packages/modules.js?hash=2a367b26e3a8bba28eb5f4c150671490da2617a8",
-      "size": 687534,
-      "hash": "2a367b26e3a8bba28eb5f4c150671490da2617a8"
+      "url": "/__cordova/packages/modules.js?hash=4d820290f84047a6057c5afcb721fb7d71881ef7",
+      "size": 701836,
+      "hash": "4d820290f84047a6057c5afcb721fb7d71881ef7"
     },
     {
       "path": "packages/modern-browsers.js",
@@ -1066,11 +1066,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/__cordova/app/app.js?hash=d329b06987740834841a32d4c431b424c4507489",
+      "url": "/__cordova/app/app.js?hash=362c7d26cd2717061d9fc66671dc75748effe06e",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/__cordova/app/d329b06987740834841a32d4c431b424c4507489.map",
-      "size": 360618,
-      "hash": "d329b06987740834841a32d4c431b424c4507489"
+      "sourceMapUrl": "/__cordova/app/362c7d26cd2717061d9fc66671dc75748effe06e.map",
+      "size": 363321,
+      "hash": "362c7d26cd2717061d9fc66671dc75748effe06e"
     },
     {
       "path": "merged-stylesheets.css",
@@ -1210,6 +1210,24 @@
       "hash": "b3253b854b958bb4f2e4c2dae5ff45c8237dc1d6"
     },
     {
+      "path": "app/Untitled 2.psdb",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/__cordova/Untitled 2.psdb",
+      "size": 147982,
+      "hash": "c7a41a3a19767cdae03d52e1e4a0bddaad0277da"
+    },
+    {
+      "path": "app/Untitled 2.psdb",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/Untitled 2.psdb",
+      "size": 147982,
+      "hash": "c7a41a3a19767cdae03d52e1e4a0bddaad0277da"
+    },
+    {
       "path": "app/apple-touch-icon-precomposed.png",
       "where": "client",
       "type": "asset",
@@ -1280,6 +1298,24 @@
       "url": "/favicon.png",
       "size": 3279,
       "hash": "394c749bc4ce144fa31f384f7c87edf22819e964"
+    },
+    {
+      "path": "app/favicon.psdb",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/__cordova/favicon.psdb",
+      "size": 657775,
+      "hash": "cb40fc80582c4cdfe221101c3fc231f851d4b125"
+    },
+    {
+      "path": "app/favicon.psdb",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/favicon.psdb",
+      "size": 657775,
+      "hash": "cb40fc80582c4cdfe221101c3fc231f851d4b125"
     },
     {
       "path": "app/faviconold.png",
@@ -1660,6 +1696,24 @@
       "hash": "7215da4b304a97a5263fdfc675cb825d508b3fcd"
     },
     {
+      "path": "app/images/justaditface.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/__cordova/images/justaditface.png",
+      "size": 103990,
+      "hash": "0b704c91ba7a4ba0a82325b724f6eaed82101b76"
+    },
+    {
+      "path": "app/images/justaditface.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/justaditface.png",
+      "size": 103990,
+      "hash": "0b704c91ba7a4ba0a82325b724f6eaed82101b76"
+    },
+    {
       "path": "app/images/shop.png",
       "where": "client",
       "type": "asset",
@@ -1874,6 +1928,24 @@
       "url": "/img/app/chrome-iphone6-432x882@2x.jpg",
       "size": 89340,
       "hash": "2f89a1490e5ec32839450cdf64f63b974ff0f2c0"
+    },
+    {
+      "path": "app/img/app/justaditface.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/__cordova/img/app/justaditface.png",
+      "size": 103990,
+      "hash": "0b704c91ba7a4ba0a82325b724f6eaed82101b76"
+    },
+    {
+      "path": "app/img/app/justaditface.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/img/app/justaditface.png",
+      "size": 103990,
+      "hash": "0b704c91ba7a4ba0a82325b724f6eaed82101b76"
     },
     {
       "path": "app/img/app/logo-local.png",
@@ -3481,7 +3553,7 @@
       "path": "head.html",
       "where": "internal",
       "type": "head",
-      "hash": "4f16bc71d9e02958abb5754bdf63679c766aaaf8"
+      "hash": "ad192938d62be5771534158f1d0d7eb61263fb80"
     }
   ],
   "cordovaCompatibilityVersions": {

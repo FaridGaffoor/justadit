@@ -3443,7 +3443,334 @@ module.exports = {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-}}},"moment":{"package.json":function(require,exports){
+}}},"lazy-load-images":{"package.json":function(require,exports){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                     //
+// node_modules/lazy-load-images/package.json                                                                          //
+//                                                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                       //
+exports.name = "lazy-load-images";
+exports.version = "1.0.1";
+exports.main = "src/lazy-load-images.js";
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"src":{"lazy-load-images.js":function(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                     //
+// node_modules/lazy-load-images/src/lazy-load-images.js                                                               //
+//                                                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                       //
+"use strict";
+
+var liveOnStage = require('live-on-stage'),
+    
+    ATTR = 'data-lazy-load-src',
+    SELECTOR = 'img[' + ATTR + ']',
+    LAZY_LOADED = 'lazy-loaded',
+
+    /*
+        Add lazy-loaded class
+        
+        @param [DOM]: Element to show
+    */
+    addLoadedClass = function (element) {
+        if (element.classList) {
+            element.classList.add(LAZY_LOADED);
+        } else {
+            element.className += ' ' + LAZY_LOADED;
+        }
+    };
+
+module.exports = {
+
+    /*
+        Initialise lazy load
+    */
+    init: function () {
+        liveOnStage.track(
+            SELECTOR,
+            function (element) {
+                var src = element.getAttribute(ATTR);
+
+                element.addEventListener('load', function () {
+                    addLoadedClass(element);
+                });
+                
+                if (element.complete) {
+                    addLoadedClass(element);
+                }
+                
+                element.setAttribute('src', src);
+                
+                return true;
+            }
+        );
+    },
+    
+    /*
+        Refresh selection
+    */
+    refresh: function () {
+        liveOnStage.refresh(SELECTOR);
+    }
+};
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}}},"live-on-stage":{"package.json":function(require,exports){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                     //
+// node_modules/live-on-stage/package.json                                                                             //
+//                                                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                       //
+exports.name = "live-on-stage";
+exports.version = "1.0.8";
+exports.main = "src/live-on-stage.js";
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"src":{"live-on-stage.js":function(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                     //
+// node_modules/live-on-stage/src/live-on-stage.js                                                                     //
+//                                                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                       //
+"use strict";
+
+var cache = require('./utils/cache.js'),
+    cacheElements = require('./utils/cache-elements.js'),
+    notify = require('./utils/notify.js'),
+    viewport = require('./utils/viewport.js'),
+    
+    resizeComplete, // Resize complete timer
+    
+    liveOnStage = {
+    
+        /*
+            Check element's onScreen position
+        */
+        check: function () {
+            viewport.update();
+
+            for (var key in cache) {
+                if (cache.hasOwnProperty(key)) {
+                    this.checkCache(key);
+                }
+            }
+        },
+        
+        /*
+            Check individual cache
+            
+            @param [object]: Cache to check
+        */
+        checkCache: function (key) {
+            var thisCache = cache[key];
+
+            thisCache.elements.forEach(function (element, i) {
+                var elementIsOnStage = viewport.checkOnStage(element),
+                    stopTracking = false;
+
+                // If element is on stage and previously wasn't, fire onstage event
+                if (elementIsOnStage && !element.isOnStage) {
+                    stopTracking = notify(element, true, thisCache.onStage);
+                
+                // If element isn't on stage and previously was, fire offstage event
+                } else if (!elementIsOnStage && element.isOnStage) {
+                    stopTracking = notify(element, false, thisCache.offStage);
+                }
+                
+                if (stopTracking) {
+                    element.dom.setAttribute('data-stop-tracking', true);
+                    delete thisCache.elements[i];
+                }
+            });
+        },
+    
+        /*
+            Refresh cached elements
+            
+            @param [string] (optional): Name of cache to refresh
+        */
+        refresh: function (selector) {
+            // If an attribute has been provided, refresh that cache
+            if (cache[selector]) {
+                this.track(selector, cache[selector].onStage, cache[selector].offStage);
+                
+            // Or refresh all caches
+            } else {
+                for (var key in cache) {
+                    if (cache.hasOwnProperty(key)) {
+                        this.track(key, cache[key].onStage, cache[key].offStage);
+                    }
+                }
+            }
+        },
+        
+        /*
+            Track elements
+            
+            @param [string || NodeList]: CSS selector or DOM selection
+            @param [function]: Function to call when element appears on stage
+            @param [function]: Function to call when element leaves stage
+        */
+        track: function (selector, onStage, offStage) {
+            var trackElements = (typeof selector == 'string') ? document.querySelectorAll(selector) : selector;
+            
+            if (trackElements.length) {
+                viewport.update();
+
+                cache[selector] = {
+                    elements: cacheElements(trackElements),
+                    onStage: onStage,
+                    offStage: offStage
+                };
+                
+                this.check();
+            }
+        }
+    };
+
+// Check all cached elements every time the viewport changes position
+window.addEventListener('scroll', function () { liveOnStage.check(); });
+
+// Refresh position of all elements when the screen resizes
+window.addEventListener('resize', function () {
+    clearTimeout(resizeComplete);
+
+    resizeComplete = setTimeout(function () {
+        liveOnStage.refresh();
+    }, 200);
+});
+
+module.exports = liveOnStage;
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"utils":{"cache.js":function(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                     //
+// node_modules/live-on-stage/src/utils/cache.js                                                                       //
+//                                                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                       //
+module.exports = {};
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"cache-elements.js":function(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                     //
+// node_modules/live-on-stage/src/utils/cache-elements.js                                                              //
+//                                                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                       //
+"use strict";
+
+var viewport = require('./viewport.js');
+
+module.exports = function (elements) {
+    var elementArray = [];
+
+    [].slice.call(elements).forEach(function (element) {
+        var rect = element.getBoundingClientRect(),
+            buffer = element.getAttribute('data-buffer');
+            
+        if (element.getAttribute('data-stop-tracking') !== 'true') {
+            elementArray.push({
+                dom: element,
+                isOnStage: false,
+                buffer: parseInt(buffer) || 0,
+                top: rect.top + viewport.top,
+                left: rect.left + viewport.left,
+                bottom: rect.bottom + viewport.top,
+                right: rect.right + viewport.left
+            });
+        }
+    });
+    
+    return elementArray;
+};
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"viewport.js":function(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                     //
+// node_modules/live-on-stage/src/utils/viewport.js                                                                    //
+//                                                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                       //
+"use strict";
+
+var docElement = document.documentElement;
+
+module.exports = {
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    
+    /*
+        Update viewport measurements
+    */
+    update: function () {
+        this.top = document.body.scrollTop;
+        this.left = document.body.scrollLeft;
+        this.bottom = this.top + docElement.clientHeight;
+        this.right = this.left + docElement.clientWidth;
+    },
+    
+    /*
+        Check if element is within viewport
+        
+        @param [object]: Cached element
+    */
+    checkOnStage: function (element) {
+        var buffer = element.buffer;
+    
+        return !(
+            this.bottom < (element.top - buffer) || // Element off bottom
+            this.top > (element.bottom + buffer) || // Element off top
+            this.left > (element.right + buffer) || // Element off left
+            this.right < (element.left - buffer)    // Element off right
+        );
+    }
+};
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"notify.js":function(require,exports,module){
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                     //
+// node_modules/live-on-stage/src/utils/notify.js                                                                      //
+//                                                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                       //
+"use strict";
+
+/*
+    Notify DOM element of new onScreen status
+*/
+module.exports = function (element, isOnStage, callback) {
+    element.isOnStage = isOnStage;
+
+    if (callback) {
+        return (callback(element.dom));
+    }
+};
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}}}},"moment":{"package.json":function(require,exports){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                     //

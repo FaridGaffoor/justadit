@@ -1,7 +1,7 @@
 var TAB_KEY = 'productShowTab';
 
 Template.product.onCreated(function() {
-  debugger;
+  //debugger;
   if (Router.current().params._searchTerm)
 
     Template.product.setTab('feed');

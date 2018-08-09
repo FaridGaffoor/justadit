@@ -1,18 +1,10 @@
 {
-  "cordova-plugin-inappbrowser": {
+  "cordova-plugin-compat": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-inappbrowser@1.7.1"
+      "id": "cordova-plugin-compat@^1.1.0"
     },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-splashscreen": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-splashscreen@4.1.0"
-    },
-    "is_top_level": true,
+    "is_top_level": false,
     "variables": {}
   },
   "cordova-plugin-camera": {
@@ -25,14 +17,6 @@
       "CAMERA_USAGE_DESCRIPTION": " ",
       "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
     }
-  },
-  "cordova-plugin-compat": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-compat@^1.1.0"
-    },
-    "is_top_level": false,
-    "variables": {}
   },
   "cordova-plugin-geolocation": {
     "source": {

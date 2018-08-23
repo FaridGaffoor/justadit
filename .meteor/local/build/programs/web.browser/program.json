@@ -1057,11 +1057,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=a8502945cd7cffdc7439e8f8eda76cb6fa55c0b2",
+      "url": "/app/app.js?hash=b89f261e2f8791220fbcca044c8269327ac7990e",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/a8502945cd7cffdc7439e8f8eda76cb6fa55c0b2.map",
-      "size": 361909,
-      "hash": "a8502945cd7cffdc7439e8f8eda76cb6fa55c0b2"
+      "sourceMapUrl": "/app/b89f261e2f8791220fbcca044c8269327ac7990e.map",
+      "size": 361957,
+      "hash": "b89f261e2f8791220fbcca044c8269327ac7990e"
     },
     {
       "path": "merged-stylesheets.css",
@@ -2311,7 +2311,7 @@
       "path": "head.html",
       "where": "internal",
       "type": "head",
-      "hash": "ad192938d62be5771534158f1d0d7eb61263fb80"
+      "hash": "a86328c1c55dba52fd615cb72282146b45f58f88"
     }
   ]
 }

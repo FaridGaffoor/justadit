@@ -8,6 +8,19 @@
 
   <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-precomposed.png">
 
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "5b607fcd-21a1-472f-ad0c-690549e25792",
+      autoRegister: false,
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
+</script>
 </head>
 
 

@@ -1066,11 +1066,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/__cordova/app/app.js?hash=ca1ca2aeb1532216eba88a29ccd32f5d73785f5f",
+      "url": "/__cordova/app/app.js?hash=77123fab93d330ca4beb19d1472f3bb8f685254e",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/__cordova/app/ca1ca2aeb1532216eba88a29ccd32f5d73785f5f.map",
-      "size": 363369,
-      "hash": "ca1ca2aeb1532216eba88a29ccd32f5d73785f5f"
+      "sourceMapUrl": "/__cordova/app/77123fab93d330ca4beb19d1472f3bb8f685254e.map",
+      "size": 365979,
+      "hash": "77123fab93d330ca4beb19d1472f3bb8f685254e"
     },
     {
       "path": "merged-stylesheets.css",
@@ -1694,6 +1694,24 @@
       "url": "/images/delImage.png",
       "size": 16496,
       "hash": "7215da4b304a97a5263fdfc675cb825d508b3fcd"
+    },
+    {
+      "path": "app/images/edit.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/__cordova/images/edit.png",
+      "size": 26637,
+      "hash": "f4447308de4dc73b277bc12cbe63d58136213f9d"
+    },
+    {
+      "path": "app/images/edit.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/edit.png",
+      "size": 26637,
+      "hash": "f4447308de4dc73b277bc12cbe63d58136213f9d"
     },
     {
       "path": "app/images/justaditface.png",

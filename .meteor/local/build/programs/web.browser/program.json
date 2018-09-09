@@ -1057,11 +1057,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=b89f261e2f8791220fbcca044c8269327ac7990e",
+      "url": "/app/app.js?hash=896b98c0f018a4f189a71b22b94106c9d174f597",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/b89f261e2f8791220fbcca044c8269327ac7990e.map",
-      "size": 361957,
-      "hash": "b89f261e2f8791220fbcca044c8269327ac7990e"
+      "sourceMapUrl": "/app/896b98c0f018a4f189a71b22b94106c9d174f597.map",
+      "size": 364567,
+      "hash": "896b98c0f018a4f189a71b22b94106c9d174f597"
     },
     {
       "path": "merged-stylesheets.css",
@@ -1379,6 +1379,15 @@
       "url": "/images/delImage.png",
       "size": 16496,
       "hash": "7215da4b304a97a5263fdfc675cb825d508b3fcd"
+    },
+    {
+      "path": "app/images/edit.png",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/images/edit.png",
+      "size": 26637,
+      "hash": "f4447308de4dc73b277bc12cbe63d58136213f9d"
     },
     {
       "path": "app/images/justaditface.png",

@@ -24,36 +24,69 @@
 
                     {{#each imgs in getImageById prodImg}}               
        
-                        <div  class="col-sm-4 col-md-4 col-lg-2" style="background-image:url('{{imgs.url}}');height:300px"   >    
+                        <div  class="col-sm-4 col-md-4 col-lg-2 " >    
+                            <div class="card " style="background-image:url({{imgs.url}});background-size: 300px ">
+                                    <div class=" rounded panel-primary">
+                                            <div class="btn-group-sm  btn-group-xs">
+                                                    <button type="button" class="btn btn-primary">Edit</button>
+                                                    <button type="button" class="btn btn-primary">Delete</button>
+                                            </div>
+                                    </div>
+                            </div>                             
                                 <!-- <img   class="img-responsive panel-body "     src="{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt=""  /> -->
                                 
-                                 <img class="deleteImg btn primary-btn" src="/images/delImage.png" imgID="{{imgs._id}}">
-                                 <img class="deleteImg btn primary-btn " src="/images/" style="width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%;float:left" imgID="{{imgs._id}}">
                         </div>                                                   
      
                      {{/each}}
                     </div>
                     <div class="container-fluid panel-body">
                       <div class="form-row">
-                          <div class="col-md-4">
-                              <label>Product Title :</label>
-                              <input type="text" class="" id="txtTitle" value="{{producttitle}}">
-                          </div>
-                          <div class="col-md-4">
+                            <div class="form-group input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-default">Product title</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Product title"  id="txtTitle" aria-describedby="Product title" value="{{producttitle}}">
+                                   
+                            </div>
+
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">Product Description</span>
+                                    </div>
+                                    <textarea class="form-control" aria-label="Product Description">{{productDescription}}</textarea>
+                                  </div>
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroup-sizing-default">Product Description</span>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Default" id="txtDescription" value="{{productDescription}}" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="col-sm-4 col-md-4">
                                 <label>Product Description :</label>
                                 <input class="form-control" type="text" id="txtDescription" value="{{productDescription}}">
                             </div>
-                            <div class="col-md-4">
-                                    <label>Product Price :</label>
-                                    <input class="form-control" type="text" id="txtPrice" value="{{price}}">
+
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">Product Price R</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="txtPrice" value="{{price}}" aria-label="Amount (to the nearest rand)">
+                                    <div class="input-group-append">
+                                      <span class="input-group-text">.00</span>
+                                    </div>
                             </div>
-                            <div class="col-md-4">
-                                    <label>Product Category :</label>
-                                    <input type="text" id="txtPrice" value="{{price}}">
+
+                             
+                            <div class="col-sm-4 col-md-4">
+                                    <select class="custom-select" id="inputGroupSelect01">
+                                            <option selected>Choose...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                    </select>
                             </div>
-                            <div class="col-md-4">
-                                    <label>Product Status : Active</label>
-                                     
+                            <div class="col-sm-4 col-md-4">
+                                    <label>Product Status : Active</label>                                     
                             </div>
                             
                               

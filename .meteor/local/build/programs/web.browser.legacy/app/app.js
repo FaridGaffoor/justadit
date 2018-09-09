@@ -40,65 +40,114 @@ Template["tmp_product_maintain"] = new Template("Template.tmp_product_maintain",
       };
     }, function() {
       return [ "               \n       \n                        ", HTML.DIV({
-        class: "col-sm-4 col-md-4 col-lg-2",
+        class: "col-sm-4 col-md-4 col-lg-2 "
+      }, "    \n                            ", HTML.DIV({
+        class: "card ",
         style: function() {
-          return [ "background-image:url('", Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "url")), "');height:300px" ];
+          return [ "background-image:url(", Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "url")), ");background-size: 300px " ];
         }
-      }, "    \n                                ", HTML.Comment(" <img   class=\"img-responsive panel-body \"     src=\"{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}\" alt=\"\"  /> "), "\n                                \n                                 ", HTML.IMG({
-        class: "deleteImg btn primary-btn",
-        src: "/images/delImage.png",
-        style: "width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%;float:left",
-        imgid: function() {
-          return Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "_id"));
-        }
-      }), "\n                                 ", HTML.IMG({
-        class: "deleteImg btn primary-btn ",
-        src: "/images/delImage.png",
-        style: "width:5em;height:5em;display:block;margin-left:auto;position:relative; margin-right:auto;margin-top:auto;top:50%;float:left",
-        imgid: function() {
-          return Spacebars.mustache(Spacebars.dot(view.lookup("imgs"), "_id"));
-        }
-      }), "\n                        "), "                                                   \n     \n                     " ];
+      }, "\n                                    ", HTML.DIV({
+        class: " rounded panel-primary"
+      }, "\n                                            ", HTML.DIV({
+        class: "btn-group-sm  btn-group-xs"
+      }, "\n                                                    ", HTML.BUTTON({
+        type: "button",
+        class: "btn btn-primary"
+      }, "Edit"), "\n                                                    ", HTML.BUTTON({
+        type: "button",
+        class: "btn btn-primary"
+      }, "Delete"), "\n                                            "), "\n                                    "), "\n                            "), "                             \n                                ", HTML.Comment(" <img   class=\"img-responsive panel-body \"     src=\"{{imgs.url store='images' loading='/images/uploading.gif' uploading='/images/uploading.gif' storing='/images/storing.gif'}}\" alt=\"\"  /> "), "\n                                \n                        "), "                                                   \n     \n                     " ];
     }), "\n                    "), "\n                    ", HTML.DIV({
       class: "container-fluid panel-body"
     }, "\n                      ", HTML.DIV({
       class: "form-row"
-    }, "\n                          ", HTML.DIV({
-      class: "col-md-4"
-    }, "\n                              ", HTML.LABEL("Product Title :"), "\n                              ", HTML.INPUT({
+    }, "\n                            ", HTML.DIV({
+      class: "form-group input-group mb-3"
+    }, "\n                                    ", HTML.DIV({
+      class: "input-group-prepend"
+    }, "\n                                      ", HTML.SPAN({
+      class: "input-group-text",
+      id: "inputGroup-sizing-default"
+    }, "Product title"), "\n                                    "), "\n                                    ", HTML.INPUT({
       type: "text",
-      class: "",
+      class: "form-control",
+      "aria-label": "Product title",
       id: "txtTitle",
+      "aria-describedby": "Product title",
       value: function() {
         return Spacebars.mustache(view.lookup("producttitle"));
       }
-    }), "\n                          "), "\n                          ", HTML.DIV({
-      class: "col-md-4"
+    }), "\n                                   \n                            "), "\n\n                            ", HTML.DIV({
+      class: "input-group mb-3"
+    }, "\n                                    ", HTML.DIV({
+      class: "input-group-prepend"
+    }, "\n                                      ", HTML.SPAN({
+      class: "input-group-text"
+    }, "Product Description"), "\n                                    "), "\n                                    ", HTML.TEXTAREA({
+      class: "form-control",
+      "aria-label": "Product Description",
+      value: function() {
+        return Spacebars.mustache(view.lookup("productDescription"));
+      }
+    }), "\n                                  "), "\n                            ", HTML.DIV({
+      class: "input-group mb-3"
+    }, "\n                                    ", HTML.DIV({
+      class: "input-group-prepend"
+    }, "\n                                      ", HTML.SPAN({
+      class: "input-group-text",
+      id: "inputGroup-sizing-default"
+    }, "Product Description"), "\n                                    "), "\n                                    ", HTML.INPUT({
+      type: "text",
+      class: "form-control",
+      "aria-label": "Default",
+      id: "txtDescription",
+      value: function() {
+        return Spacebars.mustache(view.lookup("productDescription"));
+      },
+      "aria-describedby": "inputGroup-sizing-default"
+    }), "\n                            "), "\n                            ", HTML.DIV({
+      class: "col-sm-4 col-md-4"
     }, "\n                                ", HTML.LABEL("Product Description :"), "\n                                ", HTML.INPUT({
+      class: "form-control",
       type: "text",
       id: "txtDescription",
       value: function() {
         return Spacebars.mustache(view.lookup("productDescription"));
       }
-    }), "\n                            "), "\n                            ", HTML.DIV({
-      class: "col-md-4"
-    }, "\n                                    ", HTML.LABEL("Product Price :"), "\n                                    ", HTML.INPUT({
+    }), "\n                            "), "\n\n                            ", HTML.DIV({
+      class: "input-group mb-3"
+    }, "\n                                    ", HTML.DIV({
+      class: "input-group-prepend"
+    }, "\n                                      ", HTML.SPAN({
+      class: "input-group-text"
+    }, "Product Price R"), "\n                                    "), "\n                                    ", HTML.INPUT({
       type: "text",
+      class: "form-control",
       id: "txtPrice",
       value: function() {
         return Spacebars.mustache(view.lookup("price"));
-      }
-    }), "\n                            "), "\n                            ", HTML.DIV({
-      class: "col-md-4"
-    }, "\n                                    ", HTML.LABEL("Product Category :"), "\n                                    ", HTML.INPUT({
-      type: "text",
-      id: "txtPrice",
-      value: function() {
-        return Spacebars.mustache(view.lookup("price"));
-      }
-    }), "\n                            "), "\n                            ", HTML.DIV({
-      class: "col-md-4"
-    }, "\n                                    ", HTML.LABEL("Product Status : Active"), "\n                                     \n                            "), "\n                            \n                              \n                      "), "     \n                     \n                    "), "\n                    \n                     ", HTML.Comment(' <div class="card" >\n                        <div class="panel-body">\n                            <div class="card-block">\n                                <div class="media-left">\n                                   <div class="row">\n                                      <div class="col-md-4 col-sm-4">\n                                          <div style="width:236px;height:236px">\n                                              {{>showImage imgId=seller.busLogo}}\n                                            </div>\n                                      </div>\n                                      <div class="col-md-8 col-sm-8">\n                                        {{#if currentUser}}\n                                          <div class="media-body">\n                                              <h1 class="text-capitalize">{{seller.businessname}}</h1>\n                                                <div class="panel-body">\n                                                    <h1>Contact</h1>\n                                                    <div class="card-subtitle">\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-phone"></span>\n                                                              {{seller.buscel}}\n                                                          </div>\n                                                      </div>\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-envelope"></span>\n                                                              {{seller.busemail}}\n                                                          </div>\n                                                      </div>\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-user"></span>\n                                                              {{seller.cont1}}/{{seller.cont2}}\n                                                          </div>\n                                                      </div>\n                                                    </div>                        \n                                                </div>                    \n                                              <div class="clearfix"></div>                 \n                                            </div>    \n                                      \n                                      \n                                            {{else}}\n                                              Please login to view details\n                                            {{/if}}    \n                                      </div>\n                                   </div>                    \n                                </div>            \n                                               \n                            </div>            \n                        </div>       \n                    </div>  \n                     '), "\n\n                     ", HTML.DIV("\n                        ", HTML.BUTTON({
+      },
+      "aria-label": "Amount (to the nearest rand)"
+    }), "\n                                    ", HTML.DIV({
+      class: "input-group-append"
+    }, "\n                                      ", HTML.SPAN({
+      class: "input-group-text"
+    }, ".00"), "\n                                    "), "\n                            "), "\n\n                             \n                            ", HTML.DIV({
+      class: "col-sm-4 col-md-4"
+    }, "\n                                    ", HTML.SELECT({
+      class: "custom-select",
+      id: "inputGroupSelect01"
+    }, "\n                                            ", HTML.OPTION({
+      selected: ""
+    }, "Choose..."), "\n                                            ", HTML.OPTION({
+      value: "1"
+    }, "One"), "\n                                            ", HTML.OPTION({
+      value: "2"
+    }, "Two"), "\n                                            ", HTML.OPTION({
+      value: "3"
+    }, "Three"), "\n                                    "), "\n                            "), "\n                            ", HTML.DIV({
+      class: "col-sm-4 col-md-4"
+    }, "\n                                    ", HTML.LABEL("Product Status : Active"), "                                     \n                            "), "\n                            \n                              \n                      "), "     \n                     \n                    "), "\n                    \n                     ", HTML.Comment(' <div class="card" >\n                        <div class="panel-body">\n                            <div class="card-block">\n                                <div class="media-left">\n                                   <div class="row">\n                                      <div class="col-md-4 col-sm-4">\n                                          <div style="width:236px;height:236px">\n                                              {{>showImage imgId=seller.busLogo}}\n                                            </div>\n                                      </div>\n                                      <div class="col-md-8 col-sm-8">\n                                        {{#if currentUser}}\n                                          <div class="media-body">\n                                              <h1 class="text-capitalize">{{seller.businessname}}</h1>\n                                                <div class="panel-body">\n                                                    <h1>Contact</h1>\n                                                    <div class="card-subtitle">\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-phone"></span>\n                                                              {{seller.buscel}}\n                                                          </div>\n                                                      </div>\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-envelope"></span>\n                                                              {{seller.busemail}}\n                                                          </div>\n                                                      </div>\n                                                      <div class="row">\n                                                          <div class="col-sm-4">\n                                                              <span class="glyphicon glyphicon-user"></span>\n                                                              {{seller.cont1}}/{{seller.cont2}}\n                                                          </div>\n                                                      </div>\n                                                    </div>                        \n                                                </div>                    \n                                              <div class="clearfix"></div>                 \n                                            </div>    \n                                      \n                                      \n                                            {{else}}\n                                              Please login to view details\n                                            {{/if}}    \n                                      </div>\n                                   </div>                    \n                                </div>            \n                                               \n                            </div>            \n                        </div>       \n                    </div>  \n                     '), "\n\n                     ", HTML.DIV("\n                        ", HTML.BUTTON({
       type: "submit",
       value: "Edit/Save"
     }), "\n                        \n                        ", HTML.BUTTON({
@@ -1102,7 +1151,7 @@ Template["productItem"] = new Template("Template.productItem", (function() {
               }));
             }
           }), "\n                    ", HTML.IMG({
-            class: "card-img-top img-responsive lazy-loaded",
+            class: "card-img-top img-responsive lazy-loaded .img-thumbnail",
             style: "height:auto;width:100%;text-align: center",
             "data-lazy-load-src": function() {
               return Spacebars.mustache(Spacebars.dot(view.lookup("."), "url"), Spacebars.kw({

@@ -18,12 +18,3 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
-
-
-
-- task: Bash@3
-  inputs:
-    filePath: 'npm install'
